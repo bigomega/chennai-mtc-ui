@@ -1,32 +1,20 @@
-
-import sys
-#def soundex(name, len=4):
-name=sys.argv[1]
-len=int(sys.argv[2]|4
-""" soundex module conforming to Knuth's algorithm
-    implementation 2000-12-24 by Gregory Jorgensen
-    public domain
-"""
-
-# digits holds the soundex values for the alphabet
-digits = '01230120022455012623010202'
-sndx = ''
-fc = ''
-
-# translate alpha chars in name to soundex digits
-for c in name.upper():
-    if c.isalpha():
-        if not fc: fc = c   # remember first letter
-        d = digits[ord(c)-ord('A')]
-        # duplicate consecutive soundex digits are skipped
-        if not sndx or (d != sndx[-1]):
-            sndx += d
-
-# replace first digit with first alpha character
-sndx = fc + sndx[1:]
-
-# remove all 0s from the soundex code
-sndx = sndx.replace('0','')
-
-# return soundex code padded to len characters
-print (sndx + (len * '0'))[:len]
+def get_soundex(name):
+    """Get the soundex code for the string"""
+    name = name.upper()
+    soundex = ""
+    soundex += name[0]
+    dictionary = {"BFPV": "1", "CGJKQSXZ":"2", "DT":"3", "L":"4", "MN":"5", "R":"6", "AEIOUHWY":"."}
+    for char in name[1:]:
+        for key in dictionary.keys():
+            if char in key:
+                code = dictionary[key]
+                if code != soundex[-1]:
+                    soundex += code
+    soundex = soundex.replace(".", "")
+    soundex = soundex[:4].ljust(4, "0")
+    return soundex
+if __name__ == '__main__':
+    list = ["koyil", "kovil", "Robert", "Rupert", "Schultz", "Shultz"]
+    print("NAMEttSOUNDEX")
+    for name in list:
+        print("%stt%s" % (name, get_soundex(name)))
