@@ -6,9 +6,10 @@ env = Environment(loader=PackageLoader('yourapplication', 'templates'))
 
 @app.route("/")
 def hello():
+	f=open('data/busList','r')
+	list=f.read().split('\n')
 	template = env.get_template('busSearch.html')
-	print template.render(localStopList='[]')
-	return template.render(localStopList='[]')
+	return template.render(localStopList=[],busList=list)
 
 if __name__ == "__main__":
     app.run(debug=True)
