@@ -17,7 +17,7 @@
 					output=0;
 					$("div#content").html('');
 					$("div#heading").html('');
-					$.get('/getBusRoute',{bus:$(this).val()},function(data){
+					$.get('/getBusRoute',{bus:ui.item.value},function(data){
 						output=data;console.log(data);
 						if(!output) return;
 						$("div#content").append("<ul class='nav nav-tabs nav-stacked' id='table'></ul>");
