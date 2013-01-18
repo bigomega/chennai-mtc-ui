@@ -25,7 +25,7 @@
 						output.busFrom && $("div#heading").append(" &nbsp; From/To: "+output.busFrom);
 						output.busTo && $("div#heading").append(" &nbsp; From/To: "+output.busTo);
 						output.busTime && $("div#heading").append(" &nbsp; Average Time(min): "+output.busTime);
-						output.busData && $(output.busData).each(function(key,value){
+						output.placeData && $(output.placeData).each(function(key,value){
 							$("ul#table").append("<li><a href='#'>"+(key+1)+". &nbsp; "+value+"</a></li>")
 						});
 					});
@@ -33,6 +33,9 @@
 			});
 		});
 	</script>
+	<script type=text/javascript>
+  SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
 	<style type="text/css">
 		.ui-autocomplete.ui-menu{
 			max-height: 500px;
@@ -43,7 +46,7 @@
 {% endblock %}
 {% block content %}
 	<div class="input-append">
-		<input class="span3" id="busName" type="text" placeholder="From">
+		<input class="span1" id="busName" type="text" placeholder="Bus No.">
 		<button class="btn" type="button">Search!</button>
 	</div>
 

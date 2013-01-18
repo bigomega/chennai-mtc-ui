@@ -12,11 +12,18 @@ def index():
     return render_template('layout.html')
 
 @app.route('/busList')
-def hello():
+def busList():
 	f=open('data/busList','r')
 	list=f.read().split('|')
 	template = env.get_template('busSearch.html')
 	return template.render(localStopList=[],busList=list)
+
+@app.route('/getBus')
+def getBus():
+	f=open('data/routeList','r')
+	list=f.read().split('|')
+	template = env.get_template('placeSearch.html')
+	return template.render(placeList=list)
 
 @app.route('/getBusRoute')
 def getBusRoute():
@@ -33,9 +40,46 @@ def getBusRoute():
 		'busFrom':b[2].find_all('td')[2].string,
 		'busTo':b[2].find_all('td')[3].string,
 		'busTime':b[2].find_all('td')[4].string,
+		'placeData':0
+	}
+	resJS['placeData']=[str(x.find_all('td')[-1].string) for x in b[5:-2]]
+	return Response(json.dumps(resJS), mimetype='application/json')
+
+@app.route('/getPlaceBuses')
+def getPlaceBuses():
+	palce1=request.args.get('p1','',type=str)
+	palce2=request.args.get('p2','',type=str)
+	u1=urlopen('http://www.mtcbus.org/Places.asp?cboSourceStageName='+p1+'&submit=Search.&cboDestStageName='+p2)
+	u2=urlopen('http://www.mtcbus.org/Places.asp?cboSourceStageName='+p2+'&submit=Search.&cboDestStageName='+p1)
+	soup1 = BeautifulSoup(str(u1.read()))
+	soup2 = BeautifulSoup(str(u2.read()))
+	a=soup1.find_all('td')[7].find_all('table')[1].find_all('tr')[1:-1]
+	b=soup1.find_all('td')[7].find_all('table')[1].find_all('tr')[1:-1]
+	resJS={
+		'fromPlace':p1,
+		'toPlace':p2,
 		'busData':0
 	}
-	resJS['busData']=[str(x.find_all('td')[-1].string) for x in b[5:-2]]
+	resJS['busData']=[{
+		'busNo':str(x.find_all('td')[1].string),
+		'busType':str(x.find_all('td')[2].string),
+		'busTime':str(x.find_all('td')[3].string),
+		'busFrom':str(x.find_all('td')[4].string),
+		'busTo':str(x.find_all('td')[5].string),
+		'noBus':str(x.find_all('td')[6].string)		
+	} for x in b]
+	if(len(a)!=len(b)):
+		for x in a:
+			for y in resJS['busData']:
+				if(str(x.find_all('td')[1].string)!=y['busNo']):
+					resJS['busData'].append({
+						'busNo':str(x.find_all('td')[1].string),
+						'busType':str(x.find_all('td')[2].string),
+						'busTime':str(x.find_all('td')[3].string),
+						'busFrom':str(x.find_all('td')[4].string),
+						'busTo':str(x.find_all('td')[5].string),
+						'noBus':str(x.find_all('td')[6].string)
+					});
 	return Response(json.dumps(resJS), mimetype='application/json')
 
 if __name__ == "__main__":
