@@ -10,7 +10,7 @@ for op in temp:
 myRouteList.sort()
 f=open('data/routeList','w')
 for name in myRouteList:
-	f.write(name+'\n')
+	f.write(name+'|')
 f.close()
 
 
@@ -26,5 +26,5 @@ for op in temp:
 myBusList.sort()
 f=open('data/busList','w')
 for name in myBusList:
-	f.write(name+'\n')
+	f.write(name+'|')
 f.close()
