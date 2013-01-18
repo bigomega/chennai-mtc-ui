@@ -2,7 +2,7 @@ from flask import Flask
 from jinja2 import Environment, PackageLoader
 
 app = Flask(__name__)
-env = Environment(loader=PackageLoader('yourapplication', 'templates'))
+env = Environment(loader=PackageLoader('server', 'templates'))
 
 @app.route("/")
 def hello():

@@ -3,8 +3,9 @@
 {% block head %}
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
 	<script type="text/javascript">
+		availableTags=[]
 		$(function() {
-			var availableTags = [
+			availableTags = [
 			{% for item in busList -%}
 				{{item}},
 			{% endfor %}

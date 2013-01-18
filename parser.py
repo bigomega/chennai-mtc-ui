@@ -20,7 +20,9 @@ f.close()
 myBusList=[]
 temp=soup.find('select').find_all('option')
 for op in temp:
-	myBusList.append(str(BeautifulSoup(str(op)).string))
+	loc=str(BeautifulSoup(str(op)).string)
+	if(loc & loc!='None'):
+		myBusList.append(loc)
 myBusList.sort()
 f=open('data/busList','w')
 for name in myBusList:
