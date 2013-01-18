@@ -1,0 +1,314 @@
+<Html>
+  <Head><Title>Routes Details of MTC</Title>
+        <SCRIPT Language="JavaScript" >
+
+  //Variable Diclrations for Photo's Description.
+  
+  var strPhotoTitle = new Array(5);
+  var strPhotoDesc  = new Array(5);
+  var intR = 0;
+  var intC = 0;
+  
+  strPhotoTitle[0]= ''; //'The Meeting';
+  strPhotoTitle[1]= ''; //'The Inaguration';
+  strPhotoTitle[2]= '';
+  strPhotoTitle[3]= '';
+  strPhotoTitle[4]= '';
+  
+  //strPhotoDesc[0] = "Hon'ble Minister for Transport, Thiru. K.N. Nehru assumes charges on 13.05.2006.        "; // "CM\'s meeting with trade union leaders on wage settlement. 
+
+";
+  //strPhotoDesc[1] = "Hon'ble Minister for Finance, Thiru. K. Anbazhagan greets the Hon'ble Minister for Transport, Thiru. K.N. Nehru."; // 'CM inaugurates the Okkiam Thuraipakkam Kannagi Nagar bus terminus.';
+  //strPhotoDesc[2] = "Hon'ble Minister for Local Administration, Thiru. M.K. Stalin and   Hon'ble Minister for Transport, Thiru. K.N. Nehru.";
+  //strPhotoDesc[3] = "Thiru R.Balasubramanian (on right) takes over charge as Managing Director on 06.07.2006.";
+  
+  //strPhotoDesc[0] = "Hon\'ble Minister for Rural Development and Local Administration inaugurating A/C Bus operation on 17-09-07.
+
+";
+  //strPhotoDesc[1] = "[Public-MTC Meet on 3-12-07] - Special Commissioner and Secretary to Government and Chairman of all STUs receiving the Hon'ble Minister for Transport.
+
+";
+  //strPhotoDesc[2] = "[Public-MTC Meet on 3-12-07] - Managing Director, MTC addressing in the Meet.
+
+";
+  //strPhotoDesc[3] = "[Public-MTC Meet on 3-12-07] - Hon\'ble Minister for Transport receiving petitions (Suggestions for New Routes , modification, etc.) from Public.
+
+";
+  //strPhotoDesc[4] = "Hon\'ble Chief Minister inaugurating   1000 new buses on 3-1-08.
+
+";
+
+  // Variable Diclaratios for Flash Images Loading.
+  imgFlash  = new Array(16);                
+  var intI=0;
+  var refPhoto;
+  
+  imgFlash[0] = new Image();
+  imgFlash[1] = new Image();
+  imgFlash[2] = new Image();
+  imgFlash[3] = new Image();
+  imgFlash[4] = new Image();
+  imgFlash[5] = new Image();
+  imgFlash[6] = new Image();
+  imgFlash[7] = new Image();
+  imgFlash[8] = new Image();
+  imgFlash[9] = new Image();
+  imgFlash[10] = new Image();
+  imgFlash[11] = new Image();
+  imgFlash[12] = new Image();
+  imgFlash[13] = new Image();
+  imgFlash[14] = new Image();
+  imgFlash[15] = new Image();
+  
+  
+  imgFlash[intI++].src   = "Photos\\Photo_5.Jpg"; //"Photos\\MeetingVIPsMedium.Jpg";
+  imgFlash[intI++].src   = "Photos\\Photo_6.Jpg"; //"Photos\\OpenningCerimonyMedium.Jpg";
+  imgFlash[intI++].src   = "Photos\\Photo_7.Jpg";
+  imgFlash[intI++].src   = "Photos\\Photo_8.Jpg";
+  imgFlash[intI++].src   = "Photos\\Photo_9.Jpg";
+  imgFlash[intI++].src   = "Photos\\Photo_10.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_11.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_12.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_13.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_14.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_15.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_16.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_17.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_18.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_19.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\Photo_20.Jpg";   
+  
+  function udfAnimatePhotos()
+  {  //window.status= "Scroll Down for latest events' Photographs..." ;
+     if(intI>=15) { intI=0; }
+     window.document.getElementById('tEvents').src               = imgFlash[intI].src;
+     //window.document.getElementById('divPhotoTitle').innerText   = strPhotoTitle[intI];
+     window.document.getElementById('divPhotoTitle').style.width = '170px'; 
+     //window.document.getElementById('divPhotoDesc').innerText    = strPhotoDesc[intI] ;
+     window.document.getElementById('divPhotoDesc').style.width  = '170px'; 
+     intI++;
+  } 
+    
+  function udfStartAnimation()
+  {  refPhoto=setInterval("udfAnimatePhotos()", 2000); }
+   	
+  function udfStopAnimation()
+  {  clearInterval(refPhoto); }
+  
+  
+  //Following code depects the scrolling in status bar
+  var strMsg          = new String("Metropolintan Transport Corporation - MTC, which carries the CHENNAI, every second .............");
+  var strLetter       = new String("");
+  var strScrollingMsg = new String("");
+  var refScrollingMsg;
+  var intIDX          = 0;
+  var intDelay        = 100;       
+	       
+  function udfScrollingMSg()
+  {  strLetter       = strMsg.charAt(intIDX++) ;  
+     strScrollingMsg = strScrollingMsg + strLetter;
+     if (intIDX > strMsg.length)
+     {  intIDX=0;
+        strScrollingMsg = "";
+        }
+     window.status = strScrollingMsg + "  _";   
+  }
+  function udfStartScrollingMsg()
+  { /* refScrollingMsg = setInterval("udfScrollingMSg()", intDelay); */ }
+       
+  function udfStopScrollingMsg()
+  {  clearInterval(refScrollingMsg);
+     strScrollingMsg = "";
+     window.status='';
+  }
+  
+ 
+  //Following variable diclaration is used to create a Event Photo Msg window 
+   var strNewWindowRef;
+   
+   // Following are pasted from TopLeft... .asp file -----------------------------------------
+   function udfGreet()
+   {  alert ('<<EQffsNpibnfeUWM, 
+ Hello Satvat World! ');  }
+   
+   function udfMaximizeEventsPhoto()
+   {  var strImgAbsPath, strImgRevName, strImgName, intIdx, strSubTitle, strDescripton ;
+      strImgAbsPath = new String(document.getElementById('tEvents').src);
+      strSubTitle   = new String(document.getElementById('divPhotoTitle').innerText);
+      strDescripton = new String(document.getElementById('divPhotoDesc').innerText);
+      strImgRevName = new String("");
+      strImgName    = new String("");
+      
+      for(intIdx=strImgAbsPath.length; intIdx>=0; intIdx--)
+      {  if(strImgAbsPath.charAt(intIdx)=="/")
+         {  break; } 
+         strImgRevName = strImgRevName + strImgAbsPath.charAt(intIdx);
+      }
+
+      for(intIdx=strImgRevName.length; intIdx>=0; intIdx--)
+      {  strImgName = strImgName + strImgRevName.charAt(intIdx);
+      }
+
+     // document.getElementById('imgMedium').src = "Photos//" + strImgName;
+      udfStopAnimation();
+      refPhoto=setInterval("udfAnimatePhotos()", 1000); 
+      //alert ("Photo To Display = " + strImgName + "
+" + "Sub Title  =" + strSubTitle + "
+" + "Description=" + strDescripton);
+      strNewWindowRef = window.open("EventPhotoMsg.asp?varPhotoToDisplay=" + "Photos\" + strImgName + "&varSubTitle=" + strSubTitle + "&varDescription=" + strDescripton ,"","Menu Bar=no, Height=450px, Width=700px, Resize=no");
+      
+   }
+   // Above are pasted from TopLeft... .asp file -----------------------------------------      
+   
+</SCRIPT>
+  </Head>
+  <meta http-equiv="Page-Enter" content="revealTrans(duration=3,transition=23)">
+  <Body>
+    <Table Cellpadding='0' CellSpacing='0' Border='0' BorderColor='red'>
+       <Tr>
+          <Td Width='170px' BackGround='MenuImages\Normal\MenuBGColor.jpg'>
+              <!-- R1,C1 Contains The Menu System -->
+                    <Table CellSpacing='0' CellPadding='0' Border='0' BorderColor='green' >
+         <TBody Style='font-family: verdana; font-size: 12px; font-weight: bold; color: violet ;'>
+           <Tr>
+             <Td VAlign='top' Align='left'  Height=50>
+  			   <LINK  HREF='Menus/MENU.CSS' REL='stylesheet' Type="text/css">
+			   <Script Language='JavaScript'  Src='Menus/menu.js'></Script>
+			   <Script Language='JavaScript'  Src='Menus/menu_items.js'></Script>
+			   <Script Language='JavaScript'  Src='Menus/menu_tpl.js'></Script>
+			   <Script Language='JavaScript' > new menu(MENU_ITEMS,MENU_POS);</Script>
+			</Td>		
+          </Tr>	
+         </TBody>
+      </Table>    
+
+              <Br><Br><Br><Br><Br><Br><Br><Br><Br><Br><Br><Br><Br><Br><Br><Br><Br>
+			  <Table CellSpacing='0' CellPadding='0' Border='0' BorderColor='green' Width='170px' BGColor='#ABCDEF'>
+			     <TBody Style='font-family: verdana; font-size: 12px; font-weight: bold; color: violet ;'>
+  				   <Tr>
+  				      <Td VAlign='top' Align='center' BackGround='MenuImages\Normal\EventsPhoto.jpg'>
+				         <Img Src='Photos\MettingVIPSMedium.Jpg' Alt='Latest Events Photo. Click To Maximize.' 
+				              Border='2' Name='tEvents' Height='127px' Width='170px' 
+				              OnClick='udfMaximizeEventsPhoto();'>
+				      </Td>
+				   </Tr>
+				   <Tr>
+				       <Td VAlign='top' BackGround='MenuImages\Normal\EventsPhoto.jpg'>
+				           <Table CellSpacing='0' CellPadding='5' Border='0' BorderColor='blue'>
+  <TBody Style='font-family: verdana; font-size: 10px; font-weight: bold; color: purple;'>
+     <Tr><Td><U><B><Div Id='divPhotoTitle' Width='0px'></Div></B></U></Td></Tr>
+	 <Tr><Td><Div Id='divPhotoDesc'></Div></Td></Tr>
+	 <Tr><Td Align='center'></Td></Tr>
+  </TBody>
+</Table>	
+<!--
+<Table CellSpacing='0' CellPadding='0' Border='0' BorderColor='red' BGColor=''>
+  <Tr>
+    <Td Align='center' VAlign='center'>
+       <Embed Src="Swfs\MTCSlogans.swf" Quality="high" 
+	 	  	  PlugInSpage="http://www.macromedia.com/go/getflashplayer" 
+			  Type="application/x-shockwave-flash" 
+			  Width='181px'
+			  Height="50px" OnMouseOut='udfGreet();'>
+       </Embed>       
+	</Td>
+  </Tr>
+
+</Table>	
+  -->
+				       </Td>
+				   </Tr>     
+				 </TBody> 	
+			  </Table>
+          </Td>
+		  
+		  <Td VAlign='top'>
+		  <!-- R1,C2 Contains The Corresponding web page -->
+		  
+
+<Body OnLoad='udfStartAnimation();'>
+<Table CellSpacing='0' CellPadding='5' Border='0' BorderColor='brown' Width='598px'>
+   <TBody Style='font-family: verdana; font-size: 12px; font-weight: normal; color: black;'>
+
+    <Tr Align='center'>
+        <Td>
+			<Table CellSpacing='0' CellPadding='5' Border='0' BorderColor='' Style='Z-Index:100;' >
+			   <TBody Style='font-family: verdana; font-size: 13px; font-weight: normal; color: black;'>
+			    <Tr><Td ColSpan='5'><Form Method='get' Action='Routes.asp'  Name='frmRoutes'></Td><Tr>
+			    <Tr>
+			        <Td VAlign='top' Align='center' ColSpan='5'  Style='font-family: verdana; font-size: 18px; font-weight: bold; color: brown;'> 
+			            Route Information
+			        </Td>
+			    </Tr>   
+			    
+			    <Tr>
+			        <Td VAlign='top' Align='center' ColSpan='5' Style='font-family: verdana; font-size: 12px; font-weight: bold; color: purple;'> 
+			            [Displays all stages for a given route]
+			        </Td>
+			    </Tr>   
+
+			    <Tr>
+			        <Td Align='right' Width='120px'>Route No:</Td> 
+			        <TD Width='5px'></Td>
+			        <Td Align='left'>
+			           <Select Name='cboRouteCode' Value='' Style='Z-Index:100;'>
+						<Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option></Option><Option>01A</Option><Option>01BNS</Option><Option>01NS</Option><Option>02A</Option><Option>03A</Option><Option>04</Option><Option>05ANS</Option><Option>05B</Option><Option>05C</Option><Option>05E</Option><Option>05G</Option><Option>05K</Option><Option>05S</Option><Option>05T</Option><Option>06F</Option><Option>07B</Option><Option>07E</Option><Option>07G</Option><Option>07K</Option><Option>07S</Option><Option>08A</Option><Option>08B</Option><Option>101NS</Option><Option>10A</Option><Option>10E</Option><Option>11</Option><Option>114A</Option><Option>114CT</Option><Option>114P</Option><Option>114S</Option><Option>116</Option><Option>116AC</Option><Option>116L</Option><Option>118</Option><Option>118ET</Option><Option>119B</Option><Option>11A</Option><Option>11G</Option><Option>11H</Option><Option>12</Option><Option>120NS</Option><Option>121A</Option><Option>121B</Option><Option>121C</Option><Option>121D</Option><Option>121G</Option><Option>129C</Option><Option>12B</Option><Option>12BET</Option><Option>12BNS</Option><Option>12C</Option><Option>12G</Option><Option>13</Option><Option>134A</Option><Option>138</Option><Option>138C</Option><Option>13B</Option><Option>142</Option><Option>142B</Option><Option>147A</Option><Option>147CE</Option><Option>147S</Option><Option>15</Option><Option>150</Option><Option>154</Option><Option>154B</Option><Option>156A</Option><Option>156N</Option><Option>157</Option><Option>157C</Option><Option>157ET</Option><Option>159</Option><Option>159AET</Option><Option>159B</Option><Option>159C</Option><Option>159D</Option><Option>159E</Option><Option>15A</Option><Option>15B</Option><Option>15BET</Option><Option>15BNS</Option><Option>15C</Option><Option>15D</Option><Option>15F</Option><Option>15FCT</Option><Option>15FNS</Option><Option>15G</Option><Option>15LCT</Option><Option>164</Option><Option>17</Option><Option>170C</Option><Option>170CE</Option><Option>17A</Option><Option>17B</Option><Option>17BCT</Option><Option>17C</Option><Option>17D</Option><Option>17E</Option><Option>17G</Option><Option>17K</Option><Option>17M</Option><Option>17MCT</Option><Option>17MET</Option><Option>18</Option><Option>188C</Option><Option>18A</Option><Option>18ANS</Option><Option>18B</Option><Option>18D</Option><Option>18E</Option><Option>18F</Option><Option>18H</Option><Option>18K</Option><Option>18L</Option><Option>18P</Option><Option>18S</Option><Option>19D</Option><Option>19H</Option><Option>19K</Option><Option>19P</Option><Option>19V</Option><Option>20</Option><Option>20A</Option><Option>20B</Option><Option>20C</Option><Option>20E</Option><Option>20H</Option><Option>20K</Option><Option>20M</Option><Option>20P</Option><Option>21</Option><Option>21C</Option><Option>21D</Option><Option>21E</Option><Option>21EET</Option><Option>21F</Option><Option>21GCT</Option><Option>21GET</Option><Option>21K</Option><Option>22</Option><Option>23A</Option><Option>23C</Option><Option>23CET</Option><Option>23M</Option><Option>248</Option><Option>248A</Option><Option>248ET</Option><Option>24A</Option><Option>27B</Option><Option>27BCT</Option><Option>27BNS</Option><Option>27C</Option><Option>27D</Option><Option>27L</Option><Option>27R</Option><Option>27T</Option><Option>28</Option><Option>28A</Option><Option>28B</Option><Option>28C</Option><Option>28D</Option><Option>29A</Option><Option>29AEA</Option><Option>29AEB</Option><Option>29B</Option><Option>29C</Option><Option>29CEA</Option><Option>29CEB</Option><Option>29CET</Option><Option>29DET</Option><Option>29E</Option><Option>29ET</Option><Option>29K</Option><Option>29L</Option><Option>29NET</Option><Option>32</Option><Option>32B</Option><Option>32ET</Option><Option>33</Option><Option>37C</Option><Option>37D</Option><Option>37E</Option><Option>37G</Option><Option>38A</Option><Option>38C</Option><Option>38D</Option><Option>38G</Option><Option>38H</Option><Option>40ET</Option><Option>41F</Option><Option>41G</Option><Option>42</Option><Option>42A</Option><Option>42B</Option><Option>42C</Option><Option>42D</Option><Option>44</Option><Option>44A</Option><Option>44C</Option><Option>44D</Option><Option>44L</Option><Option>45B</Option><Option>45E</Option><Option>46</Option><Option>46ACT</Option><Option>46B</Option><Option>46C</Option><Option>46GCT</Option><Option>46GNS</Option><Option>46NS</Option><Option>47</Option><Option>47A</Option><Option>47D</Option><Option>47DET</Option><Option>48</Option><Option>48A</Option><Option>48AET</Option><Option>48B</Option><Option>48C</Option><Option>49B</Option><Option>49ET</Option><Option>49R</Option><Option>50</Option><Option>50ET</Option><Option>51A</Option><Option>51B</Option><Option>51BET</Option><Option>51E</Option><Option>51F</Option><Option>51G</Option><Option>51H</Option><Option>51K</Option><Option>51L</Option><Option>51M</Option><Option>51N</Option><Option>51P</Option><Option>51S</Option><Option>51T</Option><Option>51TCT</Option><Option>52</Option><Option>52B</Option><Option>52C</Option><Option>52D</Option><Option>52E</Option><Option>52G</Option><Option>52H</Option><Option>52K</Option><Option>52L</Option><Option>52P</Option><Option>52S</Option><Option>52T</Option><Option>53</Option><Option>53E</Option><Option>53G</Option><Option>53K</Option><Option>53P</Option><Option>53S</Option><Option>54A</Option><Option>54B</Option><Option>54C</Option><Option>54E</Option><Option>54G</Option><Option>54K</Option><Option>54M</Option><Option>54P</Option><Option>54S</Option><Option>54T</Option><Option>54V</Option><Option>55A</Option><Option>55B</Option><Option>55C</Option><Option>55D</Option><Option>55G</Option><Option>55K</Option><Option>56</Option><Option>56A</Option><Option>56C</Option><Option>56CET</Option><Option>56D</Option><Option>56DET</Option><Option>56E</Option><Option>56ET</Option><Option>56F</Option><Option>56G</Option><Option>56K</Option><Option>56M</Option><Option>56N</Option><Option>56P</Option><Option>56V</Option><Option>56W</Option><Option>57</Option><Option>57A</Option><Option>57B</Option><Option>57C</Option><Option>57CCT</Option><Option>57D</Option><Option>57E</Option><Option>57F</Option><Option>57G</Option><Option>57M</Option><Option>58A</Option><Option>58ACT</Option><Option>58G</Option><Option>58H</Option><Option>60</Option><Option>60A</Option><Option>60D</Option><Option>60H</Option><Option>61A</Option><Option>61B</Option><Option>61BCT</Option><Option>61C</Option><Option>61D</Option><Option>61DET</Option><Option>61E</Option><Option>61ECT</Option><Option>61K</Option><Option>61R</Option><Option>62</Option><Option>62A</Option><Option>62C</Option><Option>62D</Option><Option>62E</Option><Option>64B</Option><Option>64C</Option><Option>64D</Option><Option>64P</Option><Option>65</Option><Option>65B</Option><Option>65CCT</Option><Option>65D</Option><Option>65DET</Option><Option>65E</Option><Option>65G</Option><Option>65H</Option><Option>66</Option><Option>66A</Option><Option>70C</Option><Option>70CTNS</Option><Option>70K</Option><Option>70L</Option><Option>70NS</Option><Option>70R</Option><Option>70S</Option><Option>71</Option><Option>71C</Option><Option>71D</Option><Option>71F</Option><Option>80</Option><Option>88A</Option><Option>88C</Option><Option>88CET</Option><Option>88D</Option><Option>88L</Option><Option>88M</Option><Option>A45B</Option><Option>B29N</Option><Option>D70ET</Option><Option>D70NS</Option><Option>F70</Option><Option>G17</Option><Option>K18</Option><Option>K18CT</Option><Option>L17MNS</Option><Option>L18</Option><Option>L25GNS</Option><Option>LT51NS</Option><Option>M01A</Option><Option>M07A</Option><Option>M118K</Option><Option>M119</Option><Option>M119A</Option><Option>M127B</Option><Option>M12BET</Option><Option>M14</Option><Option>M15</Option><Option>M151K</Option><Option>M153</Option><Option>M18C</Option><Option>M18G</Option><Option>M18N</Option><Option>M19A</Option><Option>M19B</Option><Option>M19C</Option><Option>M21A</Option><Option>M21G</Option><Option>M21V</Option><Option>M27</Option><Option>M27NS</Option><Option>M28</Option><Option>M28ET</Option><Option>M45</Option><Option>M45AET</Option><Option>M45E</Option><Option>M45K</Option><Option>M49</Option><Option>M49CT</Option><Option>M500</Option><Option>M51</Option><Option>M51C</Option><Option>M51D</Option><Option>M51R</Option><Option>M51V</Option><Option>M52</Option><Option>M52BET</Option><Option>M52ET</Option><Option>M54</Option><Option>M54NS</Option><Option>M55</Option><Option>M60</Option><Option>M70E</Option><Option>M70F</Option><Option>M70L</Option><Option>M70NS</Option><Option>M70S</Option><Option>M70V</Option><Option>M71ENS</Option><Option>M88</Option><Option>M88A</Option><Option>M88ET</Option><Option>M88R</Option><Option>M89</Option><Option>M89T</Option><Option>MD170</Option><Option>S01A</Option><Option>S01B</Option><Option>S01C</Option><Option>S01E</Option><Option>S01G</Option><Option>S01GET</Option><Option>S05A</Option><Option>S05E</Option><Option>S06D</Option><Option>S07B</Option><Option>S07E</Option><Option>S07F</Option><Option>S07H</Option><Option>S07HET</Option><Option>S07M</Option><Option>S101</Option><Option>S11</Option><Option>S114</Option><Option>S114ET</Option><Option>S119</Option><Option>S11A</Option><Option>S11G</Option><Option>S11H</Option><Option>S120</Option><Option>S120CT</Option><Option>S12B</Option><Option>S12C</Option><Option>S13</Option><Option>S147</Option><Option>S147B</Option><Option>S147C</Option><Option>S147T</Option><Option>S153</Option><Option>S154A</Option><Option>S159A</Option><Option>S15B</Option><Option>S15G</Option><Option>S166</Option><Option>S170</Option><Option>S170A</Option><Option>S170C</Option><Option>S170L</Option><Option>S170P</Option><Option>S170T</Option><Option>S17D</Option><Option>S17E</Option><Option>S17M</Option><Option>S17MCT</Option><Option>S19B</Option><Option>S19G</Option><Option>S21G</Option><Option>S21H</Option><Option>S21HET</Option><Option>S21L</Option><Option>S22A</Option><Option>S23C</Option><Option>S23V</Option><Option>S242</Option><Option>S24A</Option><Option>S24C</Option><Option>S254</Option><Option>S25G</Option><Option>S266</Option><Option>S27B</Option><Option>S27BCT</Option><Option>S27C</Option><Option>S27D</Option><Option>S27H</Option><Option>S27L</Option><Option>S27LET</Option><Option>S27N</Option><Option>S28</Option><Option>S29A</Option><Option>S29C</Option><Option>S29CET</Option><Option>S32A</Option><Option>S32B</Option><Option>S34</Option><Option>S37D</Option><Option>S37G</Option><Option>S40A</Option><Option>S40AET</Option><Option>S41D</Option><Option>S45B</Option><Option>S46</Option><Option>S46G</Option><Option>S47</Option><Option>S47A</Option><Option>S47C</Option><Option>S47D</Option><Option>S49A</Option><Option>S500</Option><Option>S500B</Option><Option>S501</Option><Option>S502</Option><Option>S510</Option><Option>S515</Option><Option>S517</Option><Option>S517K</Option><Option>S517T</Option><Option>S519</Option><Option>S521</Option><Option>S525</Option><Option>S532</Option><Option>S536</Option><Option>S538</Option><Option>S54</Option><Option>S547</Option><Option>S549</Option><Option>S54F</Option><Option>S552K</Option><Option>S553</Option><Option>S553K</Option><Option>S554</Option><Option>S554A</Option><Option>S554B</Option><Option>S555</Option><Option>S557</Option><Option>S558</Option><Option>S558B</Option><Option>S558D</Option><Option>S562A</Option><Option>S562B</Option><Option>S563</Option><Option>S565</Option><Option>S565A</Option><Option>S566</Option><Option>S566A</Option><Option>S566B</Option><Option>S568</Option><Option>S56P</Option><Option>S57</Option><Option>S570</Option><Option>S578</Option><Option>S578P</Option><Option>S579A</Option><Option>S579V</Option><Option>S57F</Option><Option>S580</Option><Option>S582</Option><Option>S583</Option><Option>S583A</Option><Option>S583B</Option><Option>S583E</Option><Option>S587</Option><Option>S588</Option><Option>S589</Option><Option>S591</Option><Option>S591A</Option><Option>S591B</Option><Option>S591C</Option><Option>S592</Option><Option>S592G</Option><Option>S596</Option><Option>S596A</Option><Option>S596P</Option><Option>S597</Option><Option>S599</Option><Option>S62</Option><Option>S70A</Option><Option>S70D</Option><Option>S70KET</Option><Option>S71E</Option><Option>S71V</Option><Option>S88K</Option><Option>SA01</Option><Option>SA18</Option><Option>SA47</Option><Option>SA51</Option><Option>SA70</Option><Option>SB18</Option><Option>SB51</Option><Option>SB70</Option><Option>SC51</Option><Option>SC70</Option><Option>SC70ET</Option><Option>SD18</Option><Option>SD70</Option><Option>SD70ET</Option><Option>SE18</Option><Option>SG18</Option><Option>SG21</Option><Option>SG70</Option><Option>SM01</Option><Option>SM05</Option><Option>SM07</Option><Option>SM11</Option><Option>SM14</Option><Option>SM14ET</Option><Option>SM170T</Option><Option>SM18C</Option><Option>SM21GE</Option><Option>SM27</Option><Option>SM27ET</Option><Option>SM47D</Option><Option>SM49</Option><Option>SM57</Option><Option>SM70</Option><Option>SM88</Option><Option>SMN45B</Option><Option>SP19</Option><Option>SP19ET</Option><Option>SP21</Option><Option>SP49</Option><Option>SP56D</Option><Option>SP66</Option><Option>ST01</Option><Option>ST151</Option><Option>ST151C</Option><Option>ST242</Option><Option>ST51</Option><Option>SV151</Option><Option>SV21</Option><Option>SV51</Option><Option>X01A</Option><Option>X01B</Option><Option>X01C</Option><Option>X01D</Option><Option>X01GCT</Option><Option>X01J</Option><Option>X05A</Option><Option>X06A</Option><Option>X06D</Option><Option>X06DET</Option><Option>X06E</Option><Option>X07F</Option><Option>X07M</Option><Option>X101</Option><Option>X114</Option><Option>X118A</Option><Option>X11AET</Option><Option>X11H</Option><Option>X120</Option><Option>X129</Option><Option>X134</Option><Option>X138A</Option><Option>X147C</Option><Option>X151</Option><Option>X151S</Option><Option>X152B</Option><Option>X153</Option><Option>X155A</Option><Option>X162</Option><Option>X162A</Option><Option>X164C</Option><Option>X170B</Option><Option>X170K</Option><Option>X170M</Option><Option>X17D</Option><Option>X17M</Option><Option>X18ACT</Option><Option>X18D</Option><Option>X19B</Option><Option>X19E</Option><Option>X19G</Option><Option>X21G</Option><Option>X21H</Option><Option>X21L</Option><Option>X21LET</Option><Option>X22A</Option><Option>X22B</Option><Option>X23C</Option><Option>X242</Option><Option>X24C</Option><Option>X254</Option><Option>X25G</Option><Option>X27E</Option><Option>X27H</Option><Option>X27L</Option><Option>X29C</Option><Option>X29L</Option><Option>X29N</Option><Option>X32</Option><Option>X32A</Option><Option>X34</Option><Option>X35</Option><Option>X37CT</Option><Option>X37G</Option><Option>X38H</Option><Option>X38HET</Option><Option>X40</Option><Option>X40A</Option><Option>X41C</Option><Option>X41D</Option><Option>X41DET</Option><Option>X44B</Option><Option>X46G</Option><Option>X47D</Option><Option>X49A</Option><Option>X500A</Option><Option>X505</Option><Option>X505A</Option><Option>X518ET</Option><Option>X51D</Option><Option>X522</Option><Option>X523</Option><Option>X523A</Option><Option>X527</Option><Option>X52L</Option><Option>X54</Option><Option>X54CT</Option><Option>X54F</Option><Option>X54FET</Option><Option>X54L</Option><Option>X54LCT</Option><Option>X54V</Option><Option>X551</Option><Option>X551A</Option><Option>X555</Option><Option>X555M</Option><Option>X555N</Option><Option>X556</Option><Option>X557C</Option><Option>X557M</Option><Option>X558A</Option><Option>X558C</Option><Option>X558L</Option><Option>X558M</Option><Option>X558P</Option><Option>X562</Option><Option>X568B</Option><Option>X56P</Option><Option>X572</Option><Option>X572A</Option><Option>X578A</Option><Option>X579</Option><Option>X579A</Option><Option>X57F</Option><Option>X580</Option><Option>X58V</Option><Option>X59</Option><Option>X592A</Option><Option>X593</Option><Option>X595</Option><Option>X595A</Option><Option>X60C</Option><Option>X60E</Option><Option>X60G</Option><Option>X62</Option><Option>X65A</Option><Option>X65P</Option><Option>X65V</Option><Option>X66P</Option><Option>X70A</Option><Option>X70C</Option><Option>X70G</Option><Option>X70T</Option><Option>X70W</Option><Option>X71H</Option><Option>X88K</Option><Option>XA18</Option><Option>XA21</Option><Option>XA21ET</Option><Option>XA21V</Option><Option>XA47</Option><Option>XA51</Option><Option>XA57</Option><Option>XA70K</Option><Option>XB18</Option><Option>XB51</Option><Option>XB70</Option><Option>XC21</Option><Option>XC70</Option><Option>XD41</Option><Option>XD51</Option><Option>XD70</Option><Option>XE18</Option><Option>XE51</Option><Option>XG18</Option><Option>XG21ET</Option><Option>XG54</Option><Option>XG70</Option><Option>XH21</Option><Option>XH51ET</Option><Option>XL51</Option><Option>XM11A</Option><Option>XM12</Option><Option>XM152N</Option><Option>XM15ET</Option><Option>XM18C</Option><Option>XM21</Option><Option>XM21B</Option><Option>XM253</Option><Option>XM270</Option><Option>XM37B</Option><Option>XM37EC</Option><Option>XM45</Option><Option>XM49</Option><Option>XM49CT</Option><Option>XM70</Option><Option>XM70A</Option><Option>XM70C</Option><Option>XM70D</Option><Option>XM70ET</Option><Option>XM70N</Option><Option>XM79</Option><Option>XM88E</Option><Option>XP19</Option><Option>XP19ET</Option><Option>XP21</Option><Option>XP51</Option><Option>XR21</Option><Option>XS21</Option><Option>XT151K</Option><Option>XT21</Option><Option>XT51</Option><Option>XT553</Option><Option>Z01B</Option><Option>Z05A</Option><Option>Z07H</Option><Option>Z07M</Option><Option>Z101</Option><Option>Z114</Option><Option>Z11H</Option><Option>Z12B</Option><Option>Z15B</Option><Option>Z17D</Option><Option>Z17M</Option><Option>Z19B</Option><Option>Z219A</Option><Option>Z21G</Option><Option>Z21H</Option><Option>Z27B</Option><Option>Z29C</Option><Option>Z47A</Option><Option>Z500</Option><Option>Z500B</Option><Option>Z500C</Option><Option>Z568C</Option><Option>Z570</Option><Option>Z576</Option><Option>Z599</Option><Option>Z70A</Option><Option>ZA01</Option><Option>ZA51</Option><Option>ZD70</Option><Option>ZE18</Option><Option>ZK70</Option><Option>ZM70</Option>
+			           </Select>
+			        </Td>
+			        <TD Width='5px'></Td>
+			        <Td Align='left'><Input Type='submit' Value='Search' id='submit' name='submit'></Td>
+			    </Tr>
+
+			    <Tr><Td ColSpan='5' Height='25px'></Form></Td></Tr>
+
+			    <Tr>
+			        <Td ColSpan='5'>
+						<Table CellSpacing='0' CellPadding='2' Border='1' BorderColor='black' >
+						   <TBody Style='font-family: verdana; font-size: 13px; font-weight: normal; color: black;'>
+							<Tr BGColor=''><Td Align='center' ColSpan='7' Width='550px'>Please select one route code.</Td></Tr><Tr BGColor=''><Td Align='center' ColSpan='7' Width='550px'>The Search Result : 	Sorry! Route Not Found.</Td></Tr><Tr><Td  ColSpan='7' Align='middle' VAlign='top'BGColor='' Height='25px'><A Href='#' OnClick='history.back();'>Go Back</A></Td>
+						   </TBody>		
+						</Table>   
+			        </Td> 
+			    </Tr>
+
+			   </TBody>
+			</Table>        
+        </Td>
+  	</Tr>
+
+  </TBody>
+</Table>		
+</Body>
+		  </Td>
+	   </Tr>	
+       <Tr><Td BGCOlor='#ABCDEF' BackGround='MenuImages\Normal\MenuBGColor.Jpg'><Br><Br></Td></Tr>   
+	   <Tr>
+		   <Td  BGCOlor='#ABCDEF' BackGround='MenuImages\Normal\UserCountBackGround.Jpg'> <!-- #FF9B0D -->
+						       <Table CellPadding='0' CellSpacing='0' Border='0' >
+				  <Tr>
+				     <Td BGColor='gray'>
+   					    <Td VAlign='bottom' Align='center'><Img Src='UserCountImages\9.Jpg' Border='0' Alt='9' Height='35px' Width='13px'></Td><Td VAlign='bottom' Align='center'><Img Src='UserCountImages\8.Jpg' Border='0' Alt='8' Height='35px' Width='13px'></Td><Td VAlign='bottom' Align='center'><Img Src='UserCountImages\3.Jpg' Border='0' Alt='3' Height='35px' Width='13px'></Td><Td VAlign='bottom' Align='center'><Img Src='UserCountImages\4.Jpg' Border='0' Alt='4' Height='35px' Width='13px'></Td><Td VAlign='bottom' Align='center'><Img Src='UserCountImages\1.Jpg' Border='0' Alt='1' Height='35px' Width='13px'></Td><Td VAlign='bottom' Align='center'><Img Src='UserCountImages\3.Jpg' Border='0' Alt='3' Height='35px' Width='13px'></Td><Td VAlign='middle'><B><Font Size='1' Face='Verdana'>&nbsp;<Sup>rd</Sup>&nbsp;Visitor</B></Td>
+					 </Td>  
+			      </Tr>  
+			   </Table>
+			   
+			</Td>
+		   <Td BgColor='blue' Height='35px'>                      <Table CellSpacing='0' CellPadding='0' Border='0' BorderColor='megenda' >
+                         <TBody Style='font-family: verdana; font-size: 12px; font-weight: normal; color: gray;'>
+							<Tr>
+							   <Td VAlign='top' Align='left'>
+									<Embed Src="Swfs\MTCBottomButtons.Swf" Quality="high" 
+													PlugInSpage="http://www.macromedia.com/go/getflashplayer" 
+													Type="application/x-shockwave-flash" 
+													Width="599" 
+													Height="35">
+									</Embed>       
+							   </Td>
+							</Tr>
+						 </TBody>	   
+					  </Table>	 
+</Td>
+		</Tr>   
+    </Table>
+  </Body>  
+</Html>
