@@ -1,5 +1,21 @@
 {% extends "layout.html" %}
 {% block title %} Index {% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+	<script type="text/javascript">
+		$(function() {
+			var availableTags = [
+			{% for item in busList -%}
+				{{item}},
+			{% endfor %}
+			"..."
+			];
+			$( "#tags" ).autocomplete({
+				source: availableTags
+			});
+		});
+	</script>
+{% endblock %}
 {% block content %}
 	<div class="input-append">
 		<input class="span3" id="busName" type="text" placeholder="From">
