@@ -9,7 +9,14 @@ u=urlopen('http://www.mtcbus.org/Places.asp')
 data=str(u.read())
 #print(data[0:30].replace('\\n','\n'))
 data=replace_all(data,{'\\\"':'\"','\\n':'\n','\\r':'','\\t':'	'});
-
 f=open('data/stopList.html','w')
 f.write(data)
 f.close()
+
+u=urlopen('http://www.mtcbus.org/Routes.asp')
+data=str(u.read())
+data=replace_all(data,{'\\\"':'\"','\\n':'\n','\\r':'','\\t':'	'});
+f=open('data/busList.html','w')
+f.write(data)
+f.close()
+
