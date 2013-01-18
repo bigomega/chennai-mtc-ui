@@ -1,61 +1,194 @@
 b'
 <html>
- \r\n
  <head>
   <title>
    Routes By Places
   </title>
-  \r\n
   <script language="JavaScript">
-   \r\n\r\n  //Variable Diclrations for Photo\'s Description.\r\n  \r\n  var strPhotoTitle = new Array(5);\r\n  var strPhotoDesc  = new Array(5);\r\n  var intR = 0;\r\n  var intC = 0;\r\n  \r\n  strPhotoTitle[0]= \'\'; //\'The Meeting\';\r\n  strPhotoTitle[1]= \'\'; //\'The Inaguration\';\r\n  strPhotoTitle[2]= \'\';\r\n  strPhotoTitle[3]= \'\';\r\n  strPhotoTitle[4]= \'\';\r\n  \r\n  //strPhotoDesc[0] = "Hon\'ble Minister for Transport, Thiru. K.N. Nehru assumes charges on 13.05.2006.        "; // "CM\\\'s meeting with trade union leaders on wage settlement. \\n\\n";\r\n  //strPhotoDesc[1] = "Hon\'ble Minister for Finance, Thiru. K. Anbazhagan greets the Hon\'ble Minister for Transport, Thiru. K.N. Nehru."; // \'CM inaugurates the Okkiam Thuraipakkam Kannagi Nagar bus terminus.\';\r\n  //strPhotoDesc[2] = "Hon\'ble Minister for Local Administration, Thiru. M.K. Stalin and   Hon\'ble Minister for Transport, Thiru. K.N. Nehru.";\r\n  //strPhotoDesc[3] = "Thiru R.Balasubramanian (on right) takes over charge as Managing Director on 06.07.2006.";\r\n  \r\n  //strPhotoDesc[0] = "Hon\\\'ble Minister for Rural Development and Local Administration inaugurating A/C Bus operation on 17-09-07.\\n\\n";\r\n  //strPhotoDesc[1] = "[Public-MTC Meet on 3-12-07] - Special Commissioner and Secretary to Government and Chairman of all STUs receiving the Hon\'ble Minister for Transport.\\n\\n";\r\n  //strPhotoDesc[2] = "[Public-MTC Meet on 3-12-07] - Managing Director, MTC addressing in the Meet.\\n\\n";\r\n  //strPhotoDesc[3] = "[Public-MTC Meet on 3-12-07] - Hon\\\'ble Minister for Transport receiving petitions (Suggestions for New Routes , modification, etc.) from Public.\\n\\n";\r\n  //strPhotoDesc[4] = "Hon\\\'ble Chief Minister inaugurating   1000 new buses on 3-1-08.\\n\\n";\r\n\r\n  // Variable Diclaratios for Flash Images Loading.\r\n  imgFlash  = new Array(16);                \r\n  var intI=0;\r\n  var refPhoto;\r\n  \r\n  imgFlash[0] = new Image();\r\n  imgFlash[1] = new Image();\r\n  imgFlash[2] = new Image();\r\n  imgFlash[3] = new Image();\r\n  imgFlash[4] = new Image();\r\n  imgFlash[5] = new Image();\r\n  imgFlash[6] = new Image();\r\n  imgFlash[7] = new Image();\r\n  imgFlash[8] = new Image();\r\n  imgFlash[9] = new Image();\r\n  imgFlash[10] = new Image();\r\n  imgFlash[11] = new Image();\r\n  imgFlash[12] = new Image();\r\n  imgFlash[13] = new Image();\r\n  imgFlash[14] = new Image();\r\n  imgFlash[15] = new Image();\r\n  \r\n  \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_5.Jpg"; //"Photos\\\\MeetingVIPsMedium.Jpg";\r\n  imgFlash[intI++].src   = "Photos\\\\Photo_6.Jpg"; //"Photos\\\\OpenningCerimonyMedium.Jpg";\r\n  imgFlash[intI++].src   = "Photos\\\\Photo_7.Jpg";\r\n  imgFlash[intI++].src   = "Photos\\\\Photo_8.Jpg";\r\n  imgFlash[intI++].src   = "Photos\\\\Photo_9.Jpg";\r\n  imgFlash[intI++].src   = "Photos\\\\Photo_10.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_11.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_12.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_13.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_14.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_15.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_16.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_17.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_18.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_19.Jpg"; \r\n  imgFlash[intI++].src   = "Photos\\\\Photo_20.Jpg";   \r\n  \r\n  function udfAnimatePhotos()\r\n  {  //window.status= "Scroll Down for latest events\' Photographs..." ;\r\n     if(intI&gt;=15) { intI=0; }\r\n     window.document.getElementById(\'tEvents\').src               = imgFlash[intI].src;\r\n     //window.document.getElementById(\'divPhotoTitle\').innerText   = strPhotoTitle[intI];\r\n     window.document.getElementById(\'divPhotoTitle\').style.width = \'170px\'; \r\n     //window.document.getElementById(\'divPhotoDesc\').innerText    = strPhotoDesc[intI] ;\r\n     window.document.getElementById(\'divPhotoDesc\').style.width  = \'170px\'; \r\n     intI++;\r\n  } \r\n    \r\n  function udfStartAnimation()\r\n  {  refPhoto=setInterval("udfAnimatePhotos()", 2000); }\r\n   \t\r\n  function udfStopAnimation()\r\n  {  clearInterval(refPhoto); }\r\n  \r\n  \r\n  //Following code depects the scrolling in status bar\r\n  var strMsg          = new String("Metropolintan Transport Corporation - MTC, which carries the CHENNAI, every second .............");\r\n  var strLetter       = new String("");\r\n  var strScrollingMsg = new String("");\r\n  var refScrollingMsg;\r\n  var intIDX          = 0;\r\n  var intDelay        = 100;       \r\n\t       \r\n  function udfScrollingMSg()\r\n  {  strLetter       = strMsg.charAt(intIDX++) ;  \r\n     strScrollingMsg = strScrollingMsg + strLetter;\r\n     if (intIDX &gt; strMsg.length)\r\n     {  intIDX=0;\r\n        strScrollingMsg = "";\r\n        }\r\n     window.status = strScrollingMsg + "  _";   \r\n  }\r\n  function udfStartScrollingMsg()\r\n  { /* refScrollingMsg = setInterval("udfScrollingMSg()", intDelay); */ }\r\n       \r\n  function udfStopScrollingMsg()\r\n  {  clearInterval(refScrollingMsg);\r\n     strScrollingMsg = "";\r\n     window.status=\'\';\r\n  }\r\n  \r\n \r\n  //Following variable diclaration is used to create a Event Photo Msg window \r\n   var strNewWindowRef;\r\n   \r\n   // Following are pasted from TopLeft... .asp file -----------------------------------------\r\n   function udfGreet()\r\n   {  alert (\'&lt;&lt;EQffsNpibnfeUWM, \\n Hello Satvat World! \');  }\r\n   \r\n   function udfMaximizeEventsPhoto()\r\n   {  var strImgAbsPath, strImgRevName, strImgName, intIdx, strSubTitle, strDescripton ;\r\n      strImgAbsPath = new String(document.getElementById(\'tEvents\').src);\r\n      strSubTitle   = new String(document.getElementById(\'divPhotoTitle\').innerText);\r\n      strDescripton = new String(document.getElementById(\'divPhotoDesc\').innerText);\r\n      strImgRevName = new String("");\r\n      strImgName    = new String("");\r\n      \r\n      for(intIdx=strImgAbsPath.length; intIdx&gt;=0; intIdx--)\r\n      {  if(strImgAbsPath.charAt(intIdx)=="/")\r\n         {  break; } \r\n         strImgRevName = strImgRevName + strImgAbsPath.charAt(intIdx);\r\n      }\r\n\r\n      for(intIdx=strImgRevName.length; intIdx&gt;=0; intIdx--)\r\n      {  strImgName = strImgName + strImgRevName.charAt(intIdx);\r\n      }\r\n\r\n     // document.getElementById(\'imgMedium\').src = "Photos//" + strImgName;\r\n      udfStopAnimation();\r\n      refPhoto=setInterval("udfAnimatePhotos()", 1000); \r\n      //alert ("Photo To Display = " + strImgName + "\\n" + "Sub Title  =" + strSubTitle + "\\n" + "Description=" + strDescripton);\r\n      strNewWindowRef = window.open("EventPhotoMsg.asp?varPhotoToDisplay=" + "Photos\\\\" + strImgName + "&amp;varSubTitle=" + strSubTitle + "&amp;varDescription=" + strDescripton ,"","Menu Bar=no, Height=450px, Width=700px, Resize=no");\r\n      \r\n   }\r\n   // Above are pasted from TopLeft... .asp file -----------------------------------------      \r\n   \r\n
+   //Variable Diclrations for Photo's Description.
+  
+  var strPhotoTitle = new Array(5);
+  var strPhotoDesc  = new Array(5);
+  var intR = 0;
+  var intC = 0;
+  
+  strPhotoTitle[0]= ''; //'The Meeting';
+  strPhotoTitle[1]= ''; //'The Inaguration';
+  strPhotoTitle[2]= '';
+  strPhotoTitle[3]= '';
+  strPhotoTitle[4]= '';
+  
+  //strPhotoDesc[0] = "Hon'ble Minister for Transport, Thiru. K.N. Nehru assumes charges on 13.05.2006.        "; // "CM\\'s meeting with trade union leaders on wage settlement. \
+\
+";
+  //strPhotoDesc[1] = "Hon'ble Minister for Finance, Thiru. K. Anbazhagan greets the Hon'ble Minister for Transport, Thiru. K.N. Nehru."; // 'CM inaugurates the Okkiam Thuraipakkam Kannagi Nagar bus terminus.';
+  //strPhotoDesc[2] = "Hon'ble Minister for Local Administration, Thiru. M.K. Stalin and   Hon'ble Minister for Transport, Thiru. K.N. Nehru.";
+  //strPhotoDesc[3] = "Thiru R.Balasubramanian (on right) takes over charge as Managing Director on 06.07.2006.";
+  
+  //strPhotoDesc[0] = "Hon\\'ble Minister for Rural Development and Local Administration inaugurating A/C Bus operation on 17-09-07.\
+\
+";
+  //strPhotoDesc[1] = "[Public-MTC Meet on 3-12-07] - Special Commissioner and Secretary to Government and Chairman of all STUs receiving the Hon'ble Minister for Transport.\
+\
+";
+  //strPhotoDesc[2] = "[Public-MTC Meet on 3-12-07] - Managing Director, MTC addressing in the Meet.\
+\
+";
+  //strPhotoDesc[3] = "[Public-MTC Meet on 3-12-07] - Hon\\'ble Minister for Transport receiving petitions (Suggestions for New Routes , modification, etc.) from Public.\
+\
+";
+  //strPhotoDesc[4] = "Hon\\'ble Chief Minister inaugurating   1000 new buses on 3-1-08.\
+\
+";
+
+  // Variable Diclaratios for Flash Images Loading.
+  imgFlash  = new Array(16);                
+  var intI=0;
+  var refPhoto;
+  
+  imgFlash[0] = new Image();
+  imgFlash[1] = new Image();
+  imgFlash[2] = new Image();
+  imgFlash[3] = new Image();
+  imgFlash[4] = new Image();
+  imgFlash[5] = new Image();
+  imgFlash[6] = new Image();
+  imgFlash[7] = new Image();
+  imgFlash[8] = new Image();
+  imgFlash[9] = new Image();
+  imgFlash[10] = new Image();
+  imgFlash[11] = new Image();
+  imgFlash[12] = new Image();
+  imgFlash[13] = new Image();
+  imgFlash[14] = new Image();
+  imgFlash[15] = new Image();
+  
+  
+  imgFlash[intI++].src   = "Photos\\\\Photo_5.Jpg"; //"Photos\\\\MeetingVIPsMedium.Jpg";
+  imgFlash[intI++].src   = "Photos\\\\Photo_6.Jpg"; //"Photos\\\\OpenningCerimonyMedium.Jpg";
+  imgFlash[intI++].src   = "Photos\\\\Photo_7.Jpg";
+  imgFlash[intI++].src   = "Photos\\\\Photo_8.Jpg";
+  imgFlash[intI++].src   = "Photos\\\\Photo_9.Jpg";
+  imgFlash[intI++].src   = "Photos\\\\Photo_10.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_11.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_12.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_13.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_14.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_15.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_16.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_17.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_18.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_19.Jpg"; 
+  imgFlash[intI++].src   = "Photos\\\\Photo_20.Jpg";   
+  
+  function udfAnimatePhotos()
+  {  //window.status= "Scroll Down for latest events' Photographs..." ;
+     if(intI&gt;=15) { intI=0; }
+     window.document.getElementById('tEvents').src               = imgFlash[intI].src;
+     //window.document.getElementById('divPhotoTitle').innerText   = strPhotoTitle[intI];
+     window.document.getElementById('divPhotoTitle').style.width = '170px'; 
+     //window.document.getElementById('divPhotoDesc').innerText    = strPhotoDesc[intI] ;
+     window.document.getElementById('divPhotoDesc').style.width  = '170px'; 
+     intI++;
+  } 
+    
+  function udfStartAnimation()
+  {  refPhoto=setInterval("udfAnimatePhotos()", 2000); }
+   	
+  function udfStopAnimation()
+  {  clearInterval(refPhoto); }
+  
+  
+  //Following code depects the scrolling in status bar
+  var strMsg          = new String("Metropolintan Transport Corporation - MTC, which carries the CHENNAI, every second .............");
+  var strLetter       = new String("");
+  var strScrollingMsg = new String("");
+  var refScrollingMsg;
+  var intIDX          = 0;
+  var intDelay        = 100;       
+	       
+  function udfScrollingMSg()
+  {  strLetter       = strMsg.charAt(intIDX++) ;  
+     strScrollingMsg = strScrollingMsg + strLetter;
+     if (intIDX &gt; strMsg.length)
+     {  intIDX=0;
+        strScrollingMsg = "";
+        }
+     window.status = strScrollingMsg + "  _";   
+  }
+  function udfStartScrollingMsg()
+  { /* refScrollingMsg = setInterval("udfScrollingMSg()", intDelay); */ }
+       
+  function udfStopScrollingMsg()
+  {  clearInterval(refScrollingMsg);
+     strScrollingMsg = "";
+     window.status='';
+  }
+  
+ 
+  //Following variable diclaration is used to create a Event Photo Msg window 
+   var strNewWindowRef;
+   
+   // Following are pasted from TopLeft... .asp file -----------------------------------------
+   function udfGreet()
+   {  alert ('&lt;&lt;EQffsNpibnfeUWM, \
+ Hello Satvat World! ');  }
+   
+   function udfMaximizeEventsPhoto()
+   {  var strImgAbsPath, strImgRevName, strImgName, intIdx, strSubTitle, strDescripton ;
+      strImgAbsPath = new String(document.getElementById('tEvents').src);
+      strSubTitle   = new String(document.getElementById('divPhotoTitle').innerText);
+      strDescripton = new String(document.getElementById('divPhotoDesc').innerText);
+      strImgRevName = new String("");
+      strImgName    = new String("");
+      
+      for(intIdx=strImgAbsPath.length; intIdx&gt;=0; intIdx--)
+      {  if(strImgAbsPath.charAt(intIdx)=="/")
+         {  break; } 
+         strImgRevName = strImgRevName + strImgAbsPath.charAt(intIdx);
+      }
+
+      for(intIdx=strImgRevName.length; intIdx&gt;=0; intIdx--)
+      {  strImgName = strImgName + strImgRevName.charAt(intIdx);
+      }
+
+     // document.getElementById('imgMedium').src = "Photos//" + strImgName;
+      udfStopAnimation();
+      refPhoto=setInterval("udfAnimatePhotos()", 1000); 
+      //alert ("Photo To Display = " + strImgName + "\
+" + "Sub Title  =" + strSubTitle + "\
+" + "Description=" + strDescripton);
+      strNewWindowRef = window.open("EventPhotoMsg.asp?varPhotoToDisplay=" + "Photos\\\" + strImgName + "&amp;varSubTitle=" + strSubTitle + "&amp;varDescription=" + strDescripton ,"","Menu Bar=no, Height=450px, Width=700px, Resize=no");
+      
+   }
+   // Above are pasted from TopLeft... .asp file -----------------------------------------
   </script>
-  \r\n
  </head>
- \r\n
  <meta content="revealTrans(duration=3,transition=23)" http-equiv="Page-Enter">
-  \r\n
   <body>
-   \r\n
-   <table border="\'0\'" bordercolor="\'red\'" cellpadding="\'0\'" cellspacing="\'0\'">
-    \r\n
+   <table border="0" bordercolor="red" cellpadding="0" cellspacing="0">
     <tr>
-     \r\n
-     <td background="\'MenuImages\\Normal\\MenuBGColor.jpg\'" width="\'170px\'">
-      \r\n
+     <td background="MenuImages\\Normal\\MenuBGColor.jpg" width="170px">
       <!-- R1,C1 Contains The Menu System -->
-      \r\n
-      <table border="\'0\'" bordercolor="\'green\'" cellpadding="\'0\'" cellspacing="\'0\'">
-       \r\n
-       <tbody 12px; ;\' bold; color: font-size: font-weight: style="\'font-family:" verdana; violet>
-        \r\n
+      <table border="0" bordercolor="green" cellpadding="0" cellspacing="0">
+       <tbody style="font-family: verdana; font-size: 12px; font-weight: bold; color: violet ;">
         <tr>
-         \r\n
-         <td align="\'left\'" height="50" valign="\'top\'">
-          \r\n  \t\t\t
-          <link href="\'Menus/MENU.CSS\'" rel="\'stylesheet\'" type="text/css">
-           \r\n\t\t\t
-           <script language="\'JavaScript\'" src="\'Menus/menu.js\'">
+         <td align="left" height="50" valign="top">
+          <link href="Menus/MENU.CSS" rel="stylesheet" type="text/css">
+           <script language="JavaScript" src="Menus/menu.js">
            </script>
-           \r\n\t\t\t
-           <script language="\'JavaScript\'" src="\'Menus/menu_items.js\'">
+           <script language="JavaScript" src="Menus/menu_items.js">
            </script>
-           \r\n\t\t\t
-           <script language="\'JavaScript\'" src="\'Menus/menu_tpl.js\'">
+           <script language="JavaScript" src="Menus/menu_tpl.js">
            </script>
-           \r\n\t\t\t
-           <script language="\'JavaScript\'">
+           <script language="JavaScript">
             new menu(MENU_ITEMS,MENU_POS);
            </script>
-           \r\n\t\t\t
           </link>
          </td>
-         \t\t\r\n
         </tr>
-        \t\r\n
        </tbody>
-       \r\n
       </table>
-      \r\n\r\n
       <br>
        <br>
         <br>
@@ -73,67 +206,59 @@ b'
                     <br>
                      <br>
                       <br>
-                       \r\n\t\t\t
-                       <table bgcolor="\'#ABCDEF\'" border="\'0\'" bordercolor="\'green\'" cellpadding="\'0\'" cellspacing="\'0\'" width="\'170px\'">
-                        \r\n\t\t\t
-                        <tbody 12px; ;\' bold; color: font-size: font-weight: style="\'font-family:" verdana; violet>
-                         \r\n  \t\t\t\t
+                       <table bgcolor="#ABCDEF" border="0" bordercolor="green" cellpadding="0" cellspacing="0" width="170px">
+                        <tbody style="font-family: verdana; font-size: 12px; font-weight: bold; color: violet ;">
                          <tr>
-                          \r\n  \t\t\t\t
-                          <td align="\'center\'" background="\'MenuImages\\Normal\\EventsPhoto.jpg\'" valign="\'top\'">
-                           \r\n\t\t\t\t
-                           <img \r\n\t\t\t\t alt="\'Latest" border="\'2\'" click events height="\'127px\'" maximize.\' name="\'tEvents\'" onclick="\'udfMaximizeEventsPhoto();\'" photo. src="\'Photos\\MettingVIPSMedium.Jpg\'" to width="\'170px\'">
-                            \r\n\t\t\t\t
+                          <td align="center" background="MenuImages\\Normal\\EventsPhoto.jpg" valign="top">
+                           <img alt="Latest Events Photo. Click To Maximize." border="2" height="127px" name="tEvents" onclick="udfMaximizeEventsPhoto();" src="Photos\\MettingVIPSMedium.Jpg" width="170px">
                            </img>
                           </td>
-                          \r\n\t\t\t\t
                          </tr>
-                         \r\n\t\t\t\t
                          <tr>
-                          \r\n\t\t\t\t
-                          <td background="\'MenuImages\\Normal\\EventsPhoto.jpg\'" valign="\'top\'">
-                           \r\n\t\t\t\t
-                           <table border="\'0\'" bordercolor="\'blue\'" cellpadding="\'5\'" cellspacing="\'0\'">
-                            \r\n
-                            <tbody 10px; bold; color: font-size: font-weight: purple;\' style="\'font-family:" verdana;>
-                             \r\n
+                          <td background="MenuImages\\Normal\\EventsPhoto.jpg" valign="top">
+                           <table border="0" bordercolor="blue" cellpadding="5" cellspacing="0">
+                            <tbody style="font-family: verdana; font-size: 10px; font-weight: bold; color: purple;">
                              <tr>
                               <td>
                                <u>
                                 <b>
-                                 <div id="\'divPhotoTitle\'" width="\'0px\'">
+                                 <div id="divPhotoTitle" width="0px">
                                  </div>
                                 </b>
                                </u>
                               </td>
                              </tr>
-                             \r\n\t
                              <tr>
                               <td>
-                               <div id="\'divPhotoDesc\'">
+                               <div id="divPhotoDesc">
                                </div>
                               </td>
                              </tr>
-                             \r\n\t
                              <tr>
-                              <td align="\'center\'">
+                              <td align="center">
                               </td>
                              </tr>
-                             \r\n
                             </tbody>
-                            \r\n
                            </table>
-                           \t\r\n
-                           <!--\r\n<Table CellSpacing=\'0\' CellPadding=\'0\' Border=\'0\' BorderColor=\'red\' BGColor=\'\'>\r\n  <Tr>\r\n    <Td Align=\'center\' VAlign=\'center\'>\r\n       <Embed Src="Swfs\\MTCSlogans.swf" Quality="high" \r\n\t \t  \t  PlugInSpage="http://www.macromedia.com/go/getflashplayer" \r\n\t\t\t  Type="application/x-shockwave-flash" \r\n\t\t\t  Width=\'181px\'\r\n\t\t\t  Height="50px" OnMouseOut=\'udfGreet();\'>\r\n       </Embed>       \r\n\t</Td>\r\n  </Tr>\r\n\r\n</Table>\t\r\n  -->
-                           \r\n\t\t\t\t
+                           <!--
+<Table CellSpacing='0' CellPadding='0' Border='0' BorderColor='red' BGColor=''>
+  <Tr>
+    <Td Align='center' VAlign='center'>
+       <Embed Src="Swfs\\MTCSlogans.swf" Quality="high" 
+	 	  	  PlugInSpage="http://www.macromedia.com/go/getflashplayer" 
+			  Type="application/x-shockwave-flash" 
+			  Width='181px'
+			  Height="50px" OnMouseOut='udfGreet();'>
+       </Embed>       
+	</Td>
+  </Tr>
+
+</Table>	
+  -->
                           </td>
-                          \r\n\t\t\t\t
                          </tr>
-                         \r\n\t\t\t\t
                         </tbody>
-                        \t\r\n\t\t\t
                        </table>
-                       \r\n
                       </br>
                      </br>
                     </br>
@@ -152,69 +277,49 @@ b'
        </br>
       </br>
      </td>
-     \r\n\t\t  \r\n\t\t
-     <td valign="\'top\'">
-      \r\n\t\t
+     <td valign="top">
       <!-- R1,C2 Contains The Corresponding web page -->
-      \r\n\t\t
-      <body onload="\'udfStartAnimation();\'">
-       \r\n
-       <table border="\'0\'" bordercolor="\'brown\'" cellpadding="\'0\'" cellspacing="\'0\'" width="\'598px\'">
-        \r\n
-        <tbody 12px; black;\' color: font-size: font-weight: normal; style="\'font-family:" verdana;>
-         \r\n\r\n\t\t\r\n\r\n\r\n
+      <body onload="udfStartAnimation();">
+       <table border="0" bordercolor="brown" cellpadding="0" cellspacing="0" width="598px">
+        <tbody style="font-family: verdana; font-size: 12px; font-weight: normal; color: black;">
          <tr>
-          <td colspan="\'5\'">
-           <form action="\'Places.asp\'" method="\'get\'" name="\'frmRoutes\'">
+          <td colspan="5">
+           <form action="Places.asp" method="get" name="frmRoutes">
             <br/>
            </form>
           </td>
           <tr>
-           \r\n
            <tr>
-            \r\n
-            <td 18px; align="\'center\'" bold; brown;\' color: colspan="\'5\'" font-size: font-weight: style="\'font-family:" valign="\'top\'" verdana;>
-             \r\n            Routes passing through stage[s]\r\n
+            <td align="center" colspan="5" style="font-family: verdana; font-size: 18px; font-weight: bold; color: brown;" valign="top">
+             Routes passing through stage[s]
             </td>
-            \r\n
            </tr>
-           \r\n
            <tr>
-            \r\n
-            <td 12px; align="\'center\'" bold; color: colspan="\'5\'" font-size: font-weight: purple;\' style="\'font-family:" valign="\'top\'" verdana;>
-             \r\n            [Route Info. for the given origin and destination stages]\r\n
+            <td align="center" colspan="5" style="font-family: verdana; font-size: 12px; font-weight: bold; color: purple;" valign="top">
+             [Route Info. for the given origin and destination stages]
             </td>
-            \r\n
            </tr>
-           \r\n\r\n    \r\n  \t
            <tr>
-            <td colspan="\'5\'">
+            <td colspan="5">
              <br/>
             </td>
            </tr>
-           \r\n
            <tr>
-            <td colspan="\'5\'">
+            <td colspan="5">
              <td>
              </td>
             </td>
            </tr>
-           \r\n
            <tr>
-            \r\n
-            <td align="\'center\'" width="\'190px\'">
+            <td align="center" width="190px">
              <b>
               Origin
              </b>
             </td>
-            \r\n
-            <td width="\'5px\'">
+            <td width="5px">
             </td>
-            \r\n
-            <td align="\'left\'">
-             \r\n
-             <select name="\'cboSourceStageName\'" style="\'Z-Index:100;\'" value="\'\'">
-              \r\n\t\t\t
+            <td align="left">
+             <select name="cboSourceStageName" style="Z-Index:100;" value="">
               <option>
               </option>
               <option>
@@ -2774,7 +2879,7 @@ b'
                SIPCOT
               </option>
               <option>
-               SIPCOT WOMEN\'S HOSTEL
+               SIPCOT WOMEN'S HOSTEL
               </option>
               <option>
                SIRUCHERI
@@ -3464,7 +3569,7 @@ b'
                WESLEY H.S
               </option>
               <option>
-               WOMEN\'S POLYTECHNIC
+               WOMEN'S POLYTECHNIC
               </option>
               <option>
                Y.M.I.A
@@ -3475,41 +3580,29 @@ b'
               <option>
                ZAMEEN ROYAPETTAH
               </option>
-              \r\n
              </select>
-             \r\n
             </td>
-            \r\n
-            <td width="\'5px\'">
+            <td width="5px">
             </td>
-            \r\n
-            <td align="\'left\'">
-             <input id="\'submit\'" name="\'submit\'" type="\'submit\'" value="\'Search.\'"/>
+            <td align="left">
+             <input id="submit" name="submit" type="submit" value="Search."/>
             </td>
-            \r\n
            </tr>
-           \r\n
            <tr>
-            <td colspan="\'5\'">
+            <td colspan="5">
              <br/>
             </td>
            </tr>
-           \r\n
            <tr>
-            \r\n
-            <td align="\'center\'">
+            <td align="center">
              <b>
               Destination
              </b>
             </td>
-            \r\n
-            <td width="\'5px\'">
+            <td width="5px">
             </td>
-            \r\n
-            <td align="\'left\'">
-             \r\n
-             <select name="\'cboDestStageName\'" style="\'Z-Index:100;\'" value="\'\'">
-              \r\n\t\t\t
+            <td align="left">
+             <select name="cboDestStageName" style="Z-Index:100;" value="">
               <option>
               </option>
               <option>
@@ -6069,7 +6162,7 @@ b'
                SIPCOT
               </option>
               <option>
-               SIPCOT WOMEN\'S HOSTEL
+               SIPCOT WOMEN'S HOSTEL
               </option>
               <option>
                SIRUCHERI
@@ -6759,7 +6852,7 @@ b'
                WESLEY H.S
               </option>
               <option>
-               WOMEN\'S POLYTECHNIC
+               WOMEN'S POLYTECHNIC
               </option>
               <option>
                Y.M.I.A
@@ -6770,109 +6863,82 @@ b'
               <option>
                ZAMEEN ROYAPETTAH
               </option>
-              \r\n
              </select>
-             \r\n
             </td>
-            \r\n
-            <td width="\'5px\'">
+            <td width="5px">
             </td>
-            \r\n
-            <td align="\'left\'">
-             <input id="\'reset\'" name="\'reset\'" type="\'reset\'" value="\'Refresh\'"/>
+            <td align="left">
+             <input id="reset" name="reset" type="reset" value="Refresh"/>
             </td>
-            \r\n
            </tr>
-           \r\n\r\n
            <tr>
-            <td colspan="\'5\'" height="\'25px\'">
+            <td colspan="5" height="25px">
             </td>
            </tr>
-           \r\n\r\n
-           <tr align="\'center\'">
-            \r\n
-            <td colspan="\'5\'">
-             \r\n\t\t\t
-             <table border="\'1\'" bordercolor="\'black\'" cellpadding="\'4\'" cellspacing="\'0\'">
-              \r\n\t\t\t
-              <tbody 13px; black;\' color: font-size: font-weight: normal; style="\'font-family:" verdana;>
-               \r\n\t\t\t\t
-               <tr bgcolor="\'\'">
-                <td align="\'center\'" colspan="\'7\'" width="\'550px\'">
+           <tr align="center">
+            <td colspan="5">
+             <table border="1" bordercolor="black" cellpadding="4" cellspacing="0">
+              <tbody style="font-family: verdana; font-size: 13px; font-weight: normal; color: black;">
+               <tr bgcolor="">
+                <td align="center" colspan="7" width="550px">
                  Please select two routes.
                 </td>
                </tr>
-               <tr bgcolor="\'\'">
-                <td align="\'justify\'" colspan="\'7\'" width="\'550px\'">
+               <tr bgcolor="">
+                <td align="justify" colspan="7" width="550px">
                  <b>
                   <u>
                    The Search Result :
                   </u>
                  </b>
-                 \tNo direct service.
+                 No direct service.
                 </td>
                </tr>
-               \r\n\t\t\t
               </tbody>
-              \t\t\r\n\t\t\t
              </table>
-             \r\n
             </td>
-            \r\n
            </tr>
-           \r\n\r\n\r\n
           </tr>
          </tr>
         </tbody>
-        \r\n
        </table>
-       \t\t\r\n
       </body>
-      \r\n\t\t
      </td>
-     \r\n\t
     </tr>
-    \t\r\n
     <tr>
-     <td background="\'MenuImages\\Normal\\MenuBGColor.Jpg\'" bgcolor="\'#ABCDEF\'">
+     <td background="MenuImages\\Normal\\MenuBGColor.Jpg" bgcolor="#ABCDEF">
       <br>
        <br/>
       </br>
      </td>
     </tr>
-    \r\n\t
     <tr>
-     \r\n\t\t
-     <td background="\'MenuImages\\Normal\\UserCountBackGround.Jpg\'" bgcolor="\'#ABCDEF\'">
+     <td background="MenuImages\\Normal\\UserCountBackGround.Jpg" bgcolor="#ABCDEF">
       <!-- #FF9B0D -->
-      \r\n\t\t\t\t\t\t
-      <table border="\'0\'" cellpadding="\'0\'" cellspacing="\'0\'">
-       \r\n\t\t\t\t
+      <table border="0" cellpadding="0" cellspacing="0">
        <tr>
-        \r\n\t\t\t\t
-        <td bgcolor="\'gray\'">
-         \r\n   \t\t\t\t\t
-         <td align="\'center\'" valign="\'bottom\'">
-          <img alt="\'9\'" border="\'0\'" height="\'35px\'" src="\'UserCountImages\\9.Jpg\'" width="\'13px\'"/>
+        <td bgcolor="gray">
+         <td align="center" valign="bottom">
+          <img alt="9" border="0" height="35px" src="UserCountImages\\9.Jpg" width="13px"/>
          </td>
-         <td align="\'center\'" valign="\'bottom\'">
-          <img alt="\'8\'" border="\'0\'" height="\'35px\'" src="\'UserCountImages\\8.Jpg\'" width="\'13px\'"/>
+         <td align="center" valign="bottom">
+          <img alt="8" border="0" height="35px" src="UserCountImages\\8.Jpg" width="13px"/>
          </td>
-         <td align="\'center\'" valign="\'bottom\'">
-          <img alt="\'3\'" border="\'0\'" height="\'35px\'" src="\'UserCountImages\\3.Jpg\'" width="\'13px\'"/>
+         <td align="center" valign="bottom">
+          <img alt="3" border="0" height="35px" src="UserCountImages\\3.Jpg" width="13px"/>
          </td>
-         <td align="\'center\'" valign="\'bottom\'">
-          <img alt="\'3\'" border="\'0\'" height="\'35px\'" src="\'UserCountImages\\3.Jpg\'" width="\'13px\'"/>
+         <td align="center" valign="bottom">
+          <img alt="3" border="0" height="35px" src="UserCountImages\\3.Jpg" width="13px"/>
          </td>
-         <td align="\'center\'" valign="\'bottom\'">
-          <img alt="\'3\'" border="\'0\'" height="\'35px\'" src="\'UserCountImages\\3.Jpg\'" width="\'13px\'"/>
+         <td align="center" valign="bottom">
+          <img alt="4" border="0" height="35px" src="UserCountImages\\4.Jpg" width="13px"/>
          </td>
-         <td align="\'center\'" valign="\'bottom\'">
-          <img alt="\'0\'" border="\'0\'" height="\'35px\'" src="\'UserCountImages\\0.Jpg\'" width="\'13px\'"/>
+         <td align="center" valign="bottom">
+          <img alt="8" border="0" height="35px" src="UserCountImages\\8.Jpg" width="13px"/>
          </td>
-         <td valign="\'middle\'">
+         <td valign="middle">
           <b>
-           <font face="\'Verdana\'" size="\'1\'">
+           <font face="Verdana" size="1">
             <sup>
              th
             </sup>
@@ -6880,44 +6946,25 @@ b'
            </font>
           </b>
          </td>
-         \r\n\t\t\t\t\t
         </td>
-        \r\n\t\t\t
        </tr>
-       \r\n\t\t\t
       </table>
-      \r\n\t\t\t   \r\n\t\t\t
      </td>
-     \r\n\t\t
-     <td bgcolor="\'blue\'" height="\'35px\'">
-      <table border="\'0\'" bordercolor="\'megenda\'" cellpadding="\'0\'" cellspacing="\'0\'">
-       \r\n
-       <tbody 12px; color: font-size: font-weight: gray;\' normal; style="\'font-family:" verdana;>
-        \r\n\t\t\t\t\t\t\t
+     <td bgcolor="blue" height="35px">
+      <table border="0" bordercolor="megenda" cellpadding="0" cellspacing="0">
+       <tbody style="font-family: verdana; font-size: 12px; font-weight: normal; color: gray;">
         <tr>
-         \r\n\t\t\t\t\t\t\t
-         <td align="\'left\'" valign="\'top\'">
-          \r\n\t\t\t\t\t\t\t\t\t
-          <embed \r\n\t\t\t\t\t\t\t\t\t\t\t\t\theight="35" \r\n\t\t\t\t\t\t\t\t\t\t\t\t\tpluginspage="http://www.macromedia.com/go/getflashplayer" \r\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype="application/x-shockwave-flash" \r\n\t\t\t\t\t\t\t\t\t\t\t\t\twidth="599" quality="high" src="Swfs\\MTCBottomButtons.Swf">
-           \r\n\t\t\t\t\t\t\t\t\t
+         <td align="left" valign="top">
+          <embed height="35" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="Swfs\\MTCBottomButtons.Swf" type="application/x-shockwave-flash" width="599">
           </embed>
-          \r\n\t\t\t\t\t\t\t
          </td>
-         \r\n\t\t\t\t\t\t\t
         </tr>
-        \r\n\t\t\t\t\t\t
        </tbody>
-       \t   \r\n\t\t\t\t\t
       </table>
-      \t \r\n
      </td>
-     \r\n\t\t
     </tr>
-    \r\n
    </table>
-   \r\n
   </body>
-  \r\n
  </meta>
 </html>
 '
