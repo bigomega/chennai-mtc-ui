@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block title %} Index {% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+	<script type="text/javascript">
+		availableTags=[],output=0
+		$(document).ready(function() {
+			availableTags = [
+			{% for item in placeList -%}
+				"{{item}}",
+			{% endfor %}
+			"..."
+			];
+			$( "#placeName1" ).autocomplete({
+				source: availableTags
+			});
+			$( "#placeName2" ).autocomplete({
+				source: availableTags
+			});
+		});
+
+
+				
+	$("button").click(function(event){
+		$("div#content").html('');
+		$("div#heading").html('');
+		$.get('/getPlaceBuses',{p1:$('placeName1').val(),p2:$('placeName2').val()},function(data){
+			output=data;console.log(data);
+			if(!output) return;
+			$("div#content").append("<ul class='nav nav-tabs nav-stacked' id='table'></ul>");
+			output.busType && $("div#heading").append("Bus-Type: "+output.busType);
+			output.busFrom && $("div#heading").append(" &nbsp; From/To: "+output.busFrom);
+			output.busTo && $("div#heading").append(" &nbsp; From/To: "+output.busTo);
+			output.busTime && $("div#heading").append(" &nbsp; Average Time(min): "+output.busTime);
+			output.busData && $(output.busData).each(function(key,value){
+				$("ul#table").append("<li><a href='#'>"+(key+1)+". &nbsp; "+value+"</a></li>")
+			});
+		});
+	});
+					
+	</script>
+	<script type=text/javascript>
+  SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+	<style type="text/css">
+		.ui-autocomplete.ui-menu{
+			max-height: 500px;
+			overflow: scroll;
+			overflow-x: hidden;
+		}
+	</style>
+{% endblock %}
+{% block content %}
+	<div class="input-append">
+		<input class="span3" id="placeName1" type="text" placeholder="From">
+		<input class="span3" id="placeName2" type="text" placeholder="To">
+		<button class="btn" type="button">Search!</button>
+	</div>
+
+	<div id='heading'></div>
+	<div id='content'>
+	</div>
+{% endblock %}
