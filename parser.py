@@ -3,18 +3,26 @@ from bs4 import BeautifulSoup
 f=open('data/stopList.html','r')
 soup = BeautifulSoup(f.read())
 f.close()
-open('data/stopList.html','w').close()
-f=open('data/stopList.html','w')
-f.write(str(soup))
-f.close()
-
-myList=[]
+myRouteList=[]
 temp=soup.find('select').find_all('option')
 for op in temp:
-	myList.append(str(BeautifulSoup(str(op)).string))
-myList.sort()
+	myRouteList.append(str(BeautifulSoup(str(op)).string))
+myRouteList.sort()
+f=open('data/routeList','w')
+for name in myRouteList:
+	f.write(name+'\n')
+f.close()
 
-f=open('data/list','w')
-for name in myList:
+
+f=open('data/busList.html','r')
+soup = BeautifulSoup(f.read())
+f.close()
+myBusList=[]
+temp=soup.find('select').find_all('option')
+for op in temp:
+	myBusList.append(str(BeautifulSoup(str(op)).string))
+myBusList.sort()
+f=open('data/busList','w')
+for name in myBusList:
 	f.write(name+'\n')
 f.close()
