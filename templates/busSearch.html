@@ -22,7 +22,7 @@
 					output.busFrom && $("div#heading").append(" &nbsp; From/To: "+output.busType);
 					output.busTo && $("div#heading").append(" &nbsp; From/To: "+output.busType);
 					output.busTime && $("div#heading").append(" &nbsp; Average Time: "+output.busType);
-					output.busData && output.busData.each(function(el){$("ul#table").append("<li><a href='#'>"+el+"</a></li>")});
+					output.busData && $(output.busData).each(function(el){$("ul#table").append("<li><a href='#'>"+el+"</a></li>")});
 				}
 			});
 		});
