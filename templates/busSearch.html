@@ -15,14 +15,20 @@
 				source: availableTags,
 				select: function(event,ui){
 					output=0;
-					$.get('/getBusRoute',{bus:$(this).val()},function(data){output=data;console.log(data);});
-					if(!output) return;
-					$("div#content").append("<ul class='nav nav-tabs nav-stacked' id='table'></ul>");
-					output.busType && $("div#heading").append("Bus-Type: "+output.busType);
-					output.busFrom && $("div#heading").append(" &nbsp; From/To: "+output.busType);
-					output.busTo && $("div#heading").append(" &nbsp; From/To: "+output.busType);
-					output.busTime && $("div#heading").append(" &nbsp; Average Time: "+output.busType);
-					output.busData && $(output.busData).each(function(el){$("ul#table").append("<li><a href='#'>"+el+"</a></li>")});
+					$("div#content").html('');
+					$("div#heading").html('');
+					$.get('/getBusRoute',{bus:$(this).val()},function(data){
+						output=data;console.log(data);
+						if(!output) return;
+						$("div#content").append("<ul class='nav nav-tabs nav-stacked' id='table'></ul>");
+						output.busType && $("div#heading").append("Bus-Type: "+output.busType);
+						output.busFrom && $("div#heading").append(" &nbsp; From/To: "+output.busFrom);
+						output.busTo && $("div#heading").append(" &nbsp; From/To: "+output.busTo);
+						output.busTime && $("div#heading").append(" &nbsp; Average Time(min): "+output.busTime);
+						output.busData && $(output.busData).each(function(key,value){
+							$("ul#table").append("<li><a href='#'>"+(key+1)+". &nbsp; "+value+"</a></li>")
+						});
+					});
 				}
 			});
 		});
