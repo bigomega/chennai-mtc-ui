@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+	<div class="input-append">
+		<input class="span3" id="busName" type="text" placeholder="From">
+		<button class="btn" type="button">Search!</button>
+	</div>
+
+	<div>
+		<ul>
+			{% for item in localStopList %}
+				<li>{{item}}</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
