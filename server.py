@@ -2,7 +2,7 @@ from flask import Flask, jsonify, render_template, request, Response
 from jinja2 import Environment, PackageLoader
 from urllib import urlopen
 from bs4 import BeautifulSoup
-import json
+import json, socket
 
 app = Flask(__name__)
 env = Environment(loader=PackageLoader('server', 'templates'))
@@ -47,8 +47,8 @@ def getBusRoute():
 
 @app.route('/getPlaceBuses')
 def getPlaceBuses():
-	palce1=request.args.get('p1','',type=str)
-	palce2=request.args.get('p2','',type=str)
+	p1=request.args.get('p1','',type=str)
+	p2=request.args.get('p2','',type=str)
 	u1=urlopen('http://www.mtcbus.org/Places.asp?cboSourceStageName='+p1+'&submit=Search.&cboDestStageName='+p2)
 	u2=urlopen('http://www.mtcbus.org/Places.asp?cboSourceStageName='+p2+'&submit=Search.&cboDestStageName='+p1)
 	soup1 = BeautifulSoup(str(u1.read()))
@@ -83,4 +83,8 @@ def getPlaceBuses():
 	return Response(json.dumps(resJS), mimetype='application/json')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind(('localhost', 0))
+    port = sock.getsockname()[1]
+    sock.close()
+    app.run(port=port)
