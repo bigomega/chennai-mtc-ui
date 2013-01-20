@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %} Index {% endblock %}
+{% block title %} Bus Search {% endblock %}
 {% block head %}
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
 	<script type="text/javascript">
@@ -21,10 +21,10 @@
 						output=data;console.log(data);
 						if(!output) return;
 						$("div#content").append("<ul class='nav nav-tabs nav-stacked' id='table'></ul>");
-						output.busType && $("div#heading").append("Bus-Type: "+output.busType);
-						output.busFrom && $("div#heading").append(" &nbsp; From/To: "+output.busFrom);
-						output.busTo && $("div#heading").append(" &nbsp; From/To: "+output.busTo);
-						output.busTime && $("div#heading").append(" &nbsp; Average Time(min): "+output.busTime);
+						output.busType && $("div#heading").append("<br>Bus-Type: <b style='color:blue'>"+output.busType+"</b>");
+						output.busFrom && $("div#heading").append(" &nbsp; From/To: <b style='color:blue'>"+output.busFrom+"</b>");
+						output.busTo && $("div#heading").append(" &nbsp; From/To: <b style='color:blue'>"+output.busTo+"</b>");
+						output.busTime && $("div#heading").append(" &nbsp; Average Time(min): <b style='color:blue'>"+output.busTime+"</b><br><br>");
 						output.placeData && $(output.placeData).each(function(key,value){
 							$("ul#table").append("<li><a href='#'>"+(key+1)+". &nbsp; "+value+"</a></li>")
 						});
@@ -33,21 +33,18 @@
 			});
 		});
 	</script>
-	<script type=text/javascript>
-  SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
 	<style type="text/css">
 		.ui-autocomplete.ui-menu{
-			max-height: 500px;
+			max-height: 450px;
 			overflow: scroll;
 			overflow-x: hidden;
 		}
 	</style>
 {% endblock %}
 {% block content %}
-	<div class="input-append">
+<center><h3>Find stops of every bus </h3></center>
+	<div class="input">
 		<input class="span1" id="busName" type="text" placeholder="Bus No.">
-		<button class="btn" type="button">Search!</button>
 	</div>
 
 	<div id='heading'></div>

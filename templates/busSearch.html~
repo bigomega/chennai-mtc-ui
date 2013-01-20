@@ -15,15 +15,17 @@
 				source: availableTags,
 				select: function(event,ui){
 					output=0;
-					$.get('/getBusRoute',{bus:$(this).val()},function(data){
+					$("div#content").html('');
+					$("div#heading").html('');
+					$.get('/getBusRoute',{bus:ui.item.value},function(data){
 						output=data;console.log(data);
 						if(!output) return;
 						$("div#content").append("<ul class='nav nav-tabs nav-stacked' id='table'></ul>");
-						output.busType && $("div#heading").append("Bus-Type: "+output.busType);
-						output.busFrom && $("div#heading").append(" &nbsp; From/To: "+output.busFrom);
-						output.busTo && $("div#heading").append(" &nbsp; From/To: "+output.busTo);
-						output.busTime && $("div#heading").append(" &nbsp; Average Time(min): "+output.busTime);
-						output.busData && $(output.busData).each(function(key,value){
+						output.busType && $("div#heading").append("<br>Bus-Type: <b style='color:blue'>"+output.busType+"</b>");
+						output.busFrom && $("div#heading").append(" &nbsp; From/To: <b style='color:blue'>"+output.busFrom+"</b>");
+						output.busTo && $("div#heading").append(" &nbsp; From/To: <b style='color:blue'>"+output.busTo+"</b>");
+						output.busTime && $("div#heading").append(" &nbsp; Average Time(min): <b style='color:blue'>"+output.busTime+"</b><br><br>");
+						output.placeData && $(output.placeData).each(function(key,value){
 							$("ul#table").append("<li><a href='#'>"+(key+1)+". &nbsp; "+value+"</a></li>")
 						});
 					});
@@ -33,16 +35,16 @@
 	</script>
 	<style type="text/css">
 		.ui-autocomplete.ui-menu{
-			max-height: 500px;
+			max-height: 450px;
 			overflow: scroll;
 			overflow-x: hidden;
 		}
 	</style>
 {% endblock %}
 {% block content %}
-	<div class="input-append">
-		<input class="span3" id="busName" type="text" placeholder="From">
-		<button class="btn" type="button">Search!</button>
+<center><h3>Find stops of every bus </h3></center>
+	<div class="input">
+		<input class="span1" id="busName" type="text" placeholder="Bus No.">
 	</div>
 
 	<div id='heading'></div>
