@@ -3,7 +3,7 @@
 {% block head %}
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
 	<script type="text/javascript">
-		availableTags=[]
+		availableTags=[],a=0
 		$(document).ready(function() {
 			availableTags = [
 			{% for item in busList -%}
@@ -15,6 +15,7 @@
 				source: availableTags,
 				select: function(event,ui){
 					console.log($(this).val());
+					$.get('/getBusRoute',{bus:'119B'},function(data){a=data;console.log(data);});
 				}
 			});
 		});
