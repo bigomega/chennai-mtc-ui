@@ -24,11 +24,12 @@ Author [Bharath](http://github.com/bigomega/ "GitHub")
 ###css - Twitter Bootsrap
 ###js - jQuery
 
-##Get a Bus data## ###/busList
+##Get a Bus data /busList
 This page gives the routes a bus goes through
 
-##Get Buses for a Path## ###/getBus
+##Get Buses for a Path /getBus
 This page gives you all the bus that passes through two points
 
 Follow me [@bigOmega](http://twitter.com/bigomega "Twitter")
 
+&copy; Copyright 2012 to Batman.
