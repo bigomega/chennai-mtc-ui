@@ -2,17 +2,17 @@
 Author [Bharath](http://github.com/bigomega/ "GitHub")
 
 
-	          _____        _____               ___________________            _______
-	         /     \      /     \             |                   |          /   __  \
-	        /       \    /       \            |                   |         /   /  |  \
-	       /         \  /         \           |_______    ________|        /   /    \_|
-	      /           \/           \                 |    |               /   /
-	     /      /\          /\      \                |    |              |   |
-	    /      /  \        /  \      \               |    |              |   |
-	   /      /    \      /    \      \              |    |              |   |       _
-	  /      /      \____/      \      \             |    |               \   \     / |
-	 /      /                    \      \            |    |                \   \___|  /
-	/_____ /                      \_____ \           |____|                 \________/
+	          _____        _____               ___________________            _________
+	         /     \      /     \             |                   |          /    __   \
+	        /       \    /       \            |                   |         /    /  |   \
+	       /         \  /         \           |_______    ________|        /    /    \ __|
+	      /           \/           \                 |    |               /    /
+	     /      /\          /\      \                |    |              |    |
+	    /      /  \        /  \      \               |    |              |    |
+	   /      /    \      /    \      \              |    |              |    |        __
+	  /      /      \____/      \      \             |    |               \    \     /   |
+	 /      /                    \      \            |    |                \    \___|   /
+	/_____ /                      \_____ \           |____|                 \__________/
 
 
 ##Pages
@@ -31,5 +31,8 @@ This page gives the routes a bus goes through
 This page gives you all the bus that passes through two points
 
 Follow me [@bigOmega](http://twitter.com/bigomega "Twitter")
+
+##License
+[The Mit License](http://opensource.org/licenses/MIT). Read MIT-LICENSE.txt for more information
 
 &copy; Copyright 2012 to Batman.
