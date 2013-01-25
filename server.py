@@ -58,7 +58,12 @@ def getPlaceBuses():
 	resJS={
 		'fromPlace':p1,
 		'toPlace':p2,
-		'busData':0
+		'busData':0,
+		'deluxCost':0,
+		'nightCost':0,
+		'acCost':0,
+		'ordinaryCost':0,
+		'expressCost':0
 	}
 	resJS['busData']=[{
 		'busNo':str(x.find_all('td')[1].string),
@@ -80,6 +85,21 @@ def getPlaceBuses():
 						'busTo':str(x.find_all('td')[5].string),
 						'noBus':str(x.find_all('td')[6].string)
 					});
+	costData=[0,3,4,5,5,6,6,6,7,7,8,8,8,9,9,9,9,9,10,10,10,11,11,12,12,13,13,14,14]
+	if(resJS['busData']!=0):
+		u3=urlopen('http://localhost:5000/getBusRoute?bus='+resJS['busData'][0]['busNo'])
+		newJSON=json.load(u3.read())
+		diff=newJSON['placeData'].index(p1)-newJSON['placeData'].index(p2)
+		if(diff<0):
+			diff=-diff
+		resJS['deluxCost']=costData[diff]*2+1
+		resJS['expressCost']=costData[diff]*1.5
+		resJS['ordinaryCost']=costData[diff]
+		resJS['nightCost']=costData[diff]*2
+		if(costData[diff]*2.5<15):
+			resJS['acCost']=15
+		else:
+			resJS['acCost']=costData[diff]*2.5
 	return Response(json.dumps(resJS), mimetype='application/json')
 
 if __name__ == "__main__":
@@ -87,4 +107,4 @@ if __name__ == "__main__":
     sock.bind(('localhost', 0))
     port = sock.getsockname()[1]
     sock.close()
-    app.run(port=port)
+    app.run(debug='true')
