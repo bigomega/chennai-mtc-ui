@@ -2,7 +2,7 @@ from flask import Flask, jsonify, render_template, request, Response
 from jinja2 import Environment, PackageLoader
 from urllib import urlopen
 from bs4 import BeautifulSoup
-import json, socket
+import json, socket, urllib2
 
 app = Flask(__name__)
 env = Environment(loader=PackageLoader('server', 'templates'))
@@ -87,7 +87,12 @@ def getPlaceBuses():
 					});
 	costData=[0,3,4,5,5,6,6,6,7,7,8,8,8,9,9,9,9,9,10,10,10,11,11,12,12,13,13,14,14]
 	if(resJS['busData']!=0):
-		u3=urlopen('http://localhost:5000/getBusRoute?bus='+resJS['busData'][0]['busNo'])
+		#u3=urlopen('http://localhost:5000/getBusRoute?bus='+resJS['busData'][0]['busNo'])
+		proxy_support = urllib2.ProxyHandler({'http':'http://proxy.ssn.net:8080/'})
+		opener = urllib2.build_opener(proxy_support,urllib2.HTTPHandler(debuglevel=1))
+		urllib2.install_opener(opener)
+		req=urllib2.Request('http://locahost:5000/getBusRoute?bus='+resJS['busData'][0]['busNo'],None,{'User-agent':'Mozilla/5.0'})
+		u3=urllib2.urlopen(req)
 		newJSON=json.load(u3.read())
 		diff=newJSON['placeData'].index(p1)-newJSON['placeData'].index(p2)
 		if(diff<0):
