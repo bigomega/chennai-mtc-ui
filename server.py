@@ -29,18 +29,18 @@ def getBus():
 def getBusRoute():
 	bus=request.args.get('bus','',type=str)
 	u=urlopen('http://www.mtcbus.org/Routes.asp?cboRouteCode='+bus)
-	soup = BeautifulSoup(str(u.read()))
+	soup = BeautifulSoup(str(u.read()), "html.parser")
 	# a=[v for v in[w for w in[z for z in[y for y in[x for x in soup.table.tr][3].table][1].table][1].table][1].children]
 	# a=a[3:-2]
 	# a.pop(1)
 	# a.pop(1)
-	b=soup.find_all('table')[4].find_all('table')[1].find_all('tr')
+	b=soup.find_all('table')[6].find_all('tr')
 	resJS={
-		'busType':b[2].find_all('td')[1].string,
-		'busFrom':b[2].find_all('td')[2].string,
-		'busTo':b[2].find_all('td')[3].string,
-		'busTime':b[2].find_all('td')[4].string,
-		'placeData':0
+		'busType': b[2].find_all('td')[1].string,
+		'busFrom': b[2].find_all('td')[2].string,
+		'busTo': b[2].find_all('td')[3].string,
+		'busTime': b[2].find_all('td')[4].string,
+		'placeData': 0
 	}
 	resJS['placeData']=[str(x.find_all('td')[-1].string) for x in b[5:-2]]
 	return Response(json.dumps(resJS), mimetype='application/json')
@@ -51,8 +51,8 @@ def getPlaceBuses():
 	p2=request.args.get('p2','',type=str)
 	u1=urlopen('http://www.mtcbus.org/Places.asp?cboSourceStageName='+p1+'&submit=Search.&cboDestStageName='+p2)
 	u2=urlopen('http://www.mtcbus.org/Places.asp?cboSourceStageName='+p2+'&submit=Search.&cboDestStageName='+p1)
-	soup1 = BeautifulSoup(str(u1.read()))
-	soup2 = BeautifulSoup(str(u2.read()))
+	soup1 = BeautifulSoup(str(u1.read()), "html.parser")
+	soup2 = BeautifulSoup(str(u2.read()), "html.parser")
 	a=soup1.find_all('td')[7].find_all('table')[1].find_all('tr')[1:-1]
 	b=soup1.find_all('td')[7].find_all('table')[1].find_all('tr')[1:-1]
 	resJS={
@@ -71,7 +71,7 @@ def getPlaceBuses():
 		'busTime':str(x.find_all('td')[3].string),
 		'busFrom':str(x.find_all('td')[4].string),
 		'busTo':str(x.find_all('td')[5].string),
-		'noBus':str(x.find_all('td')[6].string)		
+		'noBus':str(x.find_all('td')[6].string)
 	} for x in b]
 	if(len(a)!=len(b)):
 		for x in a:
