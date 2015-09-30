@@ -1,0 +1,11 @@
+- [ ] UI redesign
+  - [ ] Add back button
+  - [ ] Redesign button styling
+  - [ ] footer change
+  - [ ] Have the dp icon top
+  - [ ] Text input must have a dropdown by default (change framework)
+  - [ ] Add a loader
+  - [ ] Add a font
+- [ ] Python fixes
+  - [ ] debugg 500
+  - [ ] refactor a bit
