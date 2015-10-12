@@ -112,4 +112,4 @@ if __name__ == "__main__":
     sock.bind(('localhost', 0))
     port = sock.getsockname()[1]
     sock.close()
-    app.run(debug='true', threaded=True)
+    app.run(host='0.0.0.0', port=8080, debug='true', threaded=True)
