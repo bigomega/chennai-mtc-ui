@@ -7,5 +7,5 @@
   - [ ] Add a loader
   - [ ] Add a font
 - [ ] Python fixes
-  - [ ] debugg 500
-  - [ ] refactor a bit
+  - [x] debugg 500
+  - [-] refactor a bit

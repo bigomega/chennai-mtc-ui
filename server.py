@@ -53,8 +53,8 @@ def getPlaceBuses():
 	u2=urlopen('http://www.mtcbus.org/Places.asp?cboSourceStageName='+p2+'&submit=Search.&cboDestStageName='+p1)
 	soup1 = BeautifulSoup(str(u1.read()), "html.parser")
 	soup2 = BeautifulSoup(str(u2.read()), "html.parser")
-	a=soup1.find_all('td')[7].find_all('table')[1].find_all('tr')[1:-1]
-	b=soup1.find_all('td')[7].find_all('table')[1].find_all('tr')[1:-1]
+	a=soup1.find_all('table')[-3].find_all('tr')[1:-1]
+	b=soup1.find_all('table')[-3].find_all('tr')[1:-1]
 	resJS={
 		'fromPlace':p1,
 		'toPlace':p2,
@@ -88,12 +88,12 @@ def getPlaceBuses():
 	costData=[0,3,4,5,5,6,6,6,7,7,8,8,8,9,9,9,9,9,10,10,10,11,11,12,12,13,13,14,14]
 	if(resJS['busData']!=0):
 		#u3=urlopen('http://localhost:5000/getBusRoute?bus='+resJS['busData'][0]['busNo'])
-		proxy_support = urllib2.ProxyHandler({'http':'http://proxy.ssn.net:8080/'})
-		opener = urllib2.build_opener(proxy_support,urllib2.HTTPHandler(debuglevel=1))
-		urllib2.install_opener(opener)
-		req=urllib2.Request('http://locahost:5000/getBusRoute?bus='+resJS['busData'][0]['busNo'],None,{'User-agent':'Mozilla/5.0'})
+		# proxy_support = urllib2.ProxyHandler({'http':'http://proxy.ssn.net:8080/'})
+		# opener = urllib2.build_opener(proxy_support,urllib2.HTTPHandler(debuglevel=1))
+		# urllib2.install_opener(opener)
+		req=urllib2.Request('http://localhost:5000/getBusRoute?bus='+resJS['busData'][0]['busNo'],None,{'User-agent':'Mozilla/5.0'})
 		u3=urllib2.urlopen(req)
-		newJSON=json.load(u3.read())
+		newJSON=json.loads(u3.read())
 		diff=newJSON['placeData'].index(p1)-newJSON['placeData'].index(p2)
 		if(diff<0):
 			diff=-diff
@@ -112,4 +112,4 @@ if __name__ == "__main__":
     sock.bind(('localhost', 0))
     port = sock.getsockname()[1]
     sock.close()
-    app.run(debug='true')
+    app.run(debug='true', threaded=True)
